@@ -27,7 +27,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     '8000-ahebbes-bookstore2-jvgphak8du4.ws.codeinstitute-ide.net',
-    '.herokuapp.com',
+    'bookshop2-09bd4357cc3b.herokuapp.com',
 ]
 
 

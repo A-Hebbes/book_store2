@@ -11,9 +11,20 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+import dj_database_url
+
+if os.path.isfile("env.py"):
+    import env
+    print("env.py imported successfully")
+else:
+    print("env.py not found")
+
+print(f"DATABASE_URL after import: {os.environ.get('DATABASE_URL')}")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -76,12 +87,16 @@ WSGI_APPLICATION = 'my_store.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+}
+"""
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
 

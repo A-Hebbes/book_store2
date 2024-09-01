@@ -3,19 +3,66 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {% block meta %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% endblock %}
 
-    <!-- Bootstrap CSS -->
+    {% block extra_meta %}
+    {% endblock %}
+
+    {% block corecss%}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    {% endblock %}
+
+    {% block extra_css %}
+    {% endblock %}
+
+    {% block corejs %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <title>Bookshop</title>
+    {% endblock %}
+
+    {% block extra_js %}
+    {% endblock %}
+
+    <title>Bookshop {% block extra_title %}{% endblock %}</title>
+    <!-- CSRF Token -->
+    <script>
+      var csrftoken = '{{ csrf_token }}';
+    </script>
   </head>
+
   <body>
+    <header class="container-fluid fixed-top">
+      {% block header %}
+      <!-- Site-wide header content goes here -->
+      {% endblock %}
+    </header>
+
+    {% if messages %}
+
+    <div class="message-container"></div>
+
+    {% endif %}
+    <main>
+      {% block content %}
+      <!-- Main content goes here -->
+      {% endblock %}
+    </main>
+
+    <footer>
+      {% block footer %}
+      <!-- Site-wide footer content goes here -->
+      {% endblock %}
+    </footer>
+
+    
     
 
-   
+    {% block extra_js %}
+    <!-- Extra JavaScript goes here-->
+    {% endblock %}
   </body>
 </html>

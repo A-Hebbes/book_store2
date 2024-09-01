@@ -37,7 +37,7 @@
   <body>
     <header class="container-fluid fixed-top">
       {% block header %}
-      <!-- Site-wide header content goes here -->
+      
       {% endblock %}
     </header>
 
@@ -46,23 +46,25 @@
     <div class="message-container"></div>
 
     {% endif %}
+
+    {% block page_header %}
+    {% endblock %}
+
     <main>
       {% block content %}
-      <!-- Main content goes here -->
       {% endblock %}
     </main>
 
     <footer>
       {% block footer %}
-      <!-- Site-wide footer content goes here -->
       {% endblock %}
     </footer>
 
     
     
 
-    {% block extra_js %}
-    <!-- Extra JavaScript goes here-->
+    {% block postloadjs %}
     {% endblock %}
+
   </body>
 </html>

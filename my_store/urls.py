@@ -21,5 +21,5 @@ from bookshop.views import my_shop
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('bookshop/', my_shop, name='bookshop'),
-     path('accounts/', include('allauth.urls')),
+    path('accounts/', include('allauth.urls')),
 ]

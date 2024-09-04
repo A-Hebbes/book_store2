@@ -1,7 +1,13 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
-# Create your views here.
+def index(request):
+    """ view to return the index page """
+    return render(request, 'bookshop/index.html')
 
 def my_shop(request):
-    return HttpResponse("Bookshop")
+    """ view to return the bookshop page """
+    return render(request, 'bookshop/my_shop.html')
+
+def books(request):
+
+    return render(request, 'bookshop/books.html')

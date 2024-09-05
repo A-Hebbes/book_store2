@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from bookshop.views import my_shop
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),

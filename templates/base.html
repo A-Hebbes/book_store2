@@ -40,12 +40,12 @@
     <header class="container-fluid fixed-top">
       <div class="row">
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-          <a href="{% url 'bookshop' %}" class="nav-link bookshop-logo-link">
+          <a href="{% url 'home' %}" class="nav-link bookshop-logo-link">
             <h2 class="bookstore-font my-0"><strong>Bookstore</strong></h2>
           </a>
         </div>
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-          <form method="GET" action="{% url 'books' %}">
+          <form method="GET" action="{% url 'home' %}">
             <div class="input-group w-100">
                 <input type="text" name="q" placeholder="Search for books" class="form-control border border-primary rounded-0">
                 <div class="input-group-append">

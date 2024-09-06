@@ -1,0 +1,99 @@
+/* Base stylesh */
+html {
+    height: 100%;
+}
+
+body {
+    background: url('/media/Library-200.jpg') no-repeat center center fixed; 
+    background-size: cover;
+    height: calc(100vh - 160px); 
+    color: #333; 
+    font-family: 'Roboto', sans-serif; 
+}
+
+/* Icon from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+/* Logo  */
+.bookstore-font {
+    text-transform: uppercase;
+    letter-spacing: 2px; 
+}
+
+.bookshop-logo-link {
+    width: fit-content;
+    transition: opacity 0.3s ease; 
+}
+
+.bookshop-logo-link:hover {
+    opacity: 0.8;
+}
+
+/* "Browse Books" button */
+.browse-books-button {
+    background: #2c3e50; 
+    color: white;
+    min-width: 260px;
+    transition: all 0.3s ease; 
+}
+
+.browse-books-button:hover,
+.browse-books-button:active,
+.browse-books-button:focus {
+    background: #34495e; 
+    color: white;
+    transform: translateY(-2px); 
+}
+
+/* Text color override */
+.text-black {
+    color: #000 !important;
+}
+
+/* Border style  */
+.border-black {
+    border: 1px solid #000 !important;
+}
+
+/* Top nav  */
+#topnav {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+    backdrop-filter: blur(5px); /* Blur effect for modern browsers */
+}
+
+/* Django messages container*/
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+/* -------------------------------- Media Queries */
+/* larger container on xl screens */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 80%;
+  }
+}
+
+/* fixed top navbar only on medium and up */
+@media (min-width: 992px) {
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    .header-container {
+        padding-top: 160px;
+    }
+}

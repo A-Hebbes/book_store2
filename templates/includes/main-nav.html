@@ -1,0 +1,54 @@
+<div class="collapse navbar-collapse" id="main-nav"></div>
+    <ul class="navbar-nav w-auto mx-auto">
+        <!-- All Books Menu -->
+        <li class="nav-item dropdown">
+            <a class="bookstore-font font-weight-bold nav-link text-black mr-5" href="#" id="all-books-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                All Books
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="all-books-link">
+                <a href="{% url 'books' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+                <a href="{% url 'books' %}?sort=title&direction=asc" class="dropdown-item">By Title</a>
+                <a href="{% url 'books' %}?sort=author&direction=asc" class="dropdown-item">By Author</a>
+                <a href="{% url 'books' %}" class="dropdown-item">All Books</a>
+            </div>
+        </li>
+
+        <!-- Fiction Menu -->
+        <li class="nav-item dropdown">
+            <a class="bookstore-font font-weight-bold nav-link text-black mr-5" href="#" id="fiction-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Fiction
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="fiction-link">
+                <a href="{% url 'books' %}?category=classics" class="dropdown-item">Classics</a>
+                <a href="{% url 'books' %}?category=historical" class="dropdown-item">Historical</a>
+                <a href="{% url 'books' %}?category=mystery_thriller" class="dropdown-item">Mystery &amp; Thriller</a>
+                <a href="{% url 'books' %}?category=scifi_fantasy" class="dropdown-item">Science Fiction &amp; Fantasy</a>
+                <a href="{% url 'books' %}?category=classics,historical,mystery_thriller,scifi_fantasy" class="dropdown-item">All Fiction</a>
+            </div>
+        </li>
+
+        <!-- Non-Fiction Menu -->
+        <li class="nav-item dropdown">
+            <a class="bookstore-font font-weight-bold nav-link text-black mr-5" href="#" id="non-fiction-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Non-Fiction
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="non-fiction-link">
+                <a href="{% url 'books' %}?category=biography" class="dropdown-item">Biography &amp; Memoir</a>
+                <a href="{% url 'books' %}?category=other" class="dropdown-item">Other Non-Fiction</a>
+                <a href="{% url 'books' %}?category=biography,other" class="dropdown-item">All Non-Fiction</a>
+            </div>
+        </li>
+        
+        <!-- Special Categories -->
+        <li class="nav-item dropdown">
+            <a class="bookstore-font font-weight-bold nav-link text-black" href="#" id="specials-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Special Categories
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="specials-link">
+                <a href="{% url 'books' %}?sort=price&direction=desc" class="dropdown-item">Premium Books</a>
+                <a href="{% url 'books' %}?sort=price&direction=asc" class="dropdown-item">Budget Friendly</a>
+                <a href="{% url 'books' %}" class="dropdown-item">All Categories</a>
+            </div>
+        </li>
+    </ul>
+</div>

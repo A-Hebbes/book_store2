@@ -1,0 +1,132 @@
+[
+    {
+      "model": "books.book",
+      "pk": 1,
+      "fields": {
+        "title": "To Kill a Mockingbird",
+        "slug": "to-kill-a-mockingbird",
+        "author": "Harper Lee",
+        "isbn": "9780446310789",
+        "price": "12.99",
+        "category": "classics",
+        "description": "The unforgettable novel of a childhood in a sleepy Southern town and the crisis of conscience that rocked it."
+      }
+    },
+    {
+      "model": "books.book",
+      "pk": 2,
+      "fields": {
+        "title": "The Da Vinci Code",
+        "slug": "the-da-vinci-code",
+        "author": "Dan Brown",
+        "isbn": "9780307474278",
+        "price": "9.99",
+        "category": "mystery_thriller",
+        "description": "A thrilling mystery involving symbology, secret societies, and religious history."
+      }
+    },
+    {
+      "model": "books.book",
+      "pk": 3,
+      "fields": {
+        "title": "Dune",
+        "slug": "dune",
+        "author": "Frank Herbert",
+        "isbn": "9780441172719",
+        "price": "14.99",
+        "category": "scifi_fantasy",
+        "description": "A sweeping sci-fi epic set on the desert planet Arrakis, filled with politics, religion, and giant sandworms."
+      }
+    },
+    {
+      "model": "books.book",
+      "pk": 4,
+      "fields": {
+        "title": "The Diary of a Young Girl",
+        "slug": "the-diary-of-a-young-girl",
+        "author": "Anne Frank",
+        "isbn": "9780553577129",
+        "price": "7.99",
+        "category": "biography",
+        "description": "The haunting diary of a young Jewish girl hiding from the Nazis during World War II."
+      }
+    },
+    {
+      "model": "books.book",
+      "pk": 5,
+      "fields": {
+        "title": "Pride and Prejudice",
+        "slug": "pride-and-prejudice",
+        "author": "Jane Austen",
+        "isbn": "9780141439518",
+        "price": "8.99",
+        "category": "classics",
+        "description": "A classic tale of love and values in the class-conscious England of the late 18th century."
+      }
+    },
+    {
+      "model": "books.book",
+      "pk": 6,
+      "fields": {
+        "title": "The Pillars of the Earth",
+        "slug": "the-pillars-of-the-earth",
+        "author": "Ken Follett",
+        "isbn": "9780451166890",
+        "price": "15.99",
+        "category": "historical",
+        "description": "An epic tale of ambition, anarchy, and absolute power set against the sprawling medieval canvas of 12th-century England."
+      }
+    },
+    {
+      "model": "books.book",
+      "pk": 7,
+      "fields": {
+        "title": "The Hunger Games",
+        "slug": "the-hunger-games",
+        "author": "Suzanne Collins",
+        "isbn": "9780439023481",
+        "price": "10.99",
+        "category": "scifi_fantasy",
+        "description": "In a dark vision of the near future, a terrifying reality TV show is taking place."
+      }
+    },
+    {
+      "model": "books.book",
+      "pk": 8,
+      "fields": {
+        "title": "The Girl with the Dragon Tattoo",
+        "slug": "the-girl-with-the-dragon-tattoo",
+        "author": "Stieg Larsson",
+        "isbn": "9780307454546",
+        "price": "11.99",
+        "category": "mystery_thriller",
+        "description": "A gripping mystery combining murder investigation, family saga, love story, and financial intrigue."
+      }
+    },
+    {
+      "model": "books.book",
+      "pk": 9,
+      "fields": {
+        "title": "Steve Jobs",
+        "slug": "steve-jobs",
+        "author": "Walter Isaacson",
+        "isbn": "9781451648539",
+        "price": "16.99",
+        "category": "biography",
+        "description": "The definitive biography of Apple co-founder Steve Jobs, based on exclusive interviews with Jobs and over 100 family members, friends, and colleagues."
+      }
+    },
+    {
+      "model": "books.book",
+      "pk": 10,
+      "fields": {
+        "title": "The Alchemist",
+        "slug": "the-alchemist",
+        "author": "Paulo Coelho",
+        "isbn": "9780062315007",
+        "price": "13.99",
+        "category": "other",
+        "description": "A mystical story about following your dreams, combining magic, wisdom, and wonder."
+      }
+    }
+  ]

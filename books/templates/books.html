@@ -20,7 +20,7 @@
                         {% if book.image_path %}
                             <img src="{{ book.image_path.url }}" class="card-img-top" alt="{{ book.title }}">
                         {% else %}
-                            <img src="{% static 'images/default-book.jpg' %}" class="card-img-top" alt="{{ book.title }}">
+                            <img src="{% static 'media/default-book.jpg' %}" class="card-img-top" alt="{{ book.title }}">
                         {% endif %}
                         <div class="card-body">
                             <h5 class="card-title">{{ book.title }}</h5>

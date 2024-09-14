@@ -8,9 +8,9 @@ def all_books(request):
     books = Book.objects.all()
 
     context = {
-        'products' : products,
+        'books' : books,
     }
 
 
 
-    return render(request, 'bookshop/books.html', context)
+    return render(request, 'books/books.html', context)

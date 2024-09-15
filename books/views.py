@@ -13,5 +13,8 @@ def all_books(request):
     return render(request, 'books/books.html', context)
 
 def book_detail(request, book_id):
-    book = get_object_or_404(Book, id=book_id)
-    return render(request, 'books/book_detail.html', {'book': book})
+    book = get_object_or_404(Book, book_id=book_id)
+    context = {
+        'book': book
+    }
+    return render(request, 'books/book_detail.html', context)

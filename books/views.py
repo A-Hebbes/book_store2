@@ -14,6 +14,8 @@ def all_books(request):
 
 def book_detail(request, book_id):
     book = get_object_or_404(Book, book_id=book_id)
+    print(f"Book image path: {book.image_path}")
+    print(f"MEDIA_URL: {settings.MEDIA_URL}")
     context = {
         'book': book
     }

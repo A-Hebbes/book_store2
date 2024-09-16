@@ -14,7 +14,13 @@
         <div class="row">
             <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
                 Image To Go Here
-                <div class="image-container my-5"></div>
+                <div class="image-container my-5">
+                    {% if book.image_path %}
+                    <img class="card-img-top img-fluid" src="{{ book.image_path }}" alt="{{ book.title }}">
+                {% else %}
+                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}default-book.jpg" alt="{{ book.title }}">
+                {% endif %}
+                </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="book-details-container mb-5 mt-md-5">

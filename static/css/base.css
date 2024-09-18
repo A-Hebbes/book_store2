@@ -113,3 +113,14 @@ body {
         padding-top: 160px;
     }
 }
+
+/* Padding at the top for when navbar is collapsed on smaller screens */
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 140px;
+    }
+    
+    body {
+        min-height: calc(100vh - 116px);
+    }
+}

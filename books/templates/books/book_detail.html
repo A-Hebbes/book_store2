@@ -31,6 +31,7 @@
                     <p><strong>ISBN:</strong> {{ book.isbn }}</p>
                     <p><strong>Category:</strong> {{ book.get_category_display }}</p>
                     <p class="mt-3">{{ book.description }}</p>
+                    {% comment "Add to Cart  - started bbut needs to be finished later" %}
                     <form class="form" action="{% url 'add_to_cart' book.book_id %}" method="POST">
                         {% csrf_token %}
                         <div class="form-row">
@@ -56,6 +57,7 @@
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
                     </form>
+                    {% endcomment %}
             </div>
             </div>
         </div>

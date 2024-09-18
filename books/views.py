@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Book
 
 # Create your views here.
@@ -13,10 +13,11 @@ def all_books(request):
     return render(request, 'books/books.html', context)
 
 def book_detail(request, book_id):
-    book = get_object_or_404(Book, book_id=book_id)
-    print(f"Book image path: {book.image_path}")
-    print(f"MEDIA_URL: {settings.MEDIA_URL}")
+    """ Views Shows A Book's Detailed Information """
+    
+    book = get_object_or_404(Book, pk=book_id)
+    
     context = {
-        'book': book
+        'book': book,
     }
     return render(request, 'books/book_detail.html', context)

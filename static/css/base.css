@@ -105,6 +105,19 @@ body {
     z-index: 1032; 
 }
 
+/* book detail styles */
+
+.book-detail-container {
+    background-color: rgba(253, 236, 200, 0.9);
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+
+
 /* -------------------------------- Media Queries */
 /* larger container on xl screens */
 @media (min-width: 1200px) {
@@ -136,5 +149,11 @@ body {
     
     body {
         min-height: calc(100vh - 116px);
+    }
+}
+
+@media (min-width: 768px) {
+    .book-detail-container {
+        padding: 30px;
     }
 }

@@ -33,7 +33,7 @@ def all_books(request):
             query = request.GET['q']
             if not query:
                 messages.error(request, "You did not enter a valid search")
-                return redirect(reverse('books'))
+                return redirect(reverse('all_books'))
 
             queries = Q(title__icontains=query) | Q(author__icontains=query) | \
                       Q(description__icontains=query) | Q(category__icontains=query) | \

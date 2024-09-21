@@ -26,7 +26,7 @@ def all_books(request):
             books = books.order_by(sortkey)
         
         if 'category' in request.GET:
-            categories = request.GET['category'].split(',')
+            categories = [cat.strip() for cat in request.GET['category'].split(',')]
             books = books.filter(category__in=categories)
 
         if 'q' in request.GET:

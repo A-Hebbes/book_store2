@@ -25,11 +25,11 @@
                             Fiction
                         </a>
                         <div class="dropdown-menu border-0" aria-labelledby="fiction-link">
-                            <a href="" class="dropdown-item">Classics</a>
-                            <a href="" class="dropdown-item">Historical</a>
-                            <a href="" class="dropdown-item">Mystery &amp; Thriller</a>
-                            <a href="" class="dropdown-item">Science Fiction &amp; Fantasy</a>
-                            <a href="" class="dropdown-item">All Fiction</a>
+                            <a href="{% url 'all_books' %}?category=classics" class="dropdown-item">Classics</a>
+                            <a href="{% url 'all_books' %}?category=historical" class="dropdown-item">Historical</a>
+                            <a href="{% url 'all_books' %}?category=mystery_thriller" class="dropdown-item">Mystery &amp; Thriller</a>
+                            <a href="{% url 'all_books' %}?category=scifi_fantasy" class="dropdown-item">Science Fiction &amp; Fantasy</a>
+                            <a href="{% url 'all_books' %}?category=classics,historical,mystery_thriller,scifi_fantasy" class="dropdown-item">All Fiction</a>
                         </div>
                     </li>
 

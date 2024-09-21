@@ -12,9 +12,9 @@
                             All Books
                         </a>
                         <div class="dropdown-menu border-0" aria-labelledby="all-books-link">
-                            <a href="" class="dropdown-item">By Price</a>
-                            <a href="" class="dropdown-item">By Title</a>
-                            <a href="" class="dropdown-item">By Author</a>
+                            <a href="{% url 'all_books' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+                            <a href="{% url 'all_books' %}?sort=title&direction=asc" class="dropdown-item">By Title</a>
+                            <a href="{% url 'all_books' %}?sort=author&direction=asc" class="dropdown-item">By Author</a>
                             <a href="{% url 'all_books' %}" class="dropdown-item">All Books</a>
                         </div>
                     </li>

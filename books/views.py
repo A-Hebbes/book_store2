@@ -29,6 +29,13 @@ def all_books(request):
             categories = [cat.strip() for cat in request.GET['category'].split(',')]
             books = books.filter(category__in=categories)
 
+        if 'price_category' in request.GET:
+            price_category = request.GET['price_category']
+            if price_category == 'premium':
+                books = books.filter(price__gte=15)  
+            elif price_category == 'budget':
+                books = books.filter(price__lt=10) 
+
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:

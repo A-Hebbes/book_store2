@@ -39,9 +39,9 @@
                             Non-Fiction
                         </a>
                         <div class="dropdown-menu border-0" aria-labelledby="non-fiction-link">
-                            <a href="" class="dropdown-item">Biography &amp; Memoir</a>
-                            <a href="" class="dropdown-item">Other Non-Fiction</a>
-                            <a href="" class="dropdown-item">All Non-Fiction</a>
+                            <a href="{% url 'all_books' %}?category=biography" class="dropdown-item">Biography &amp; Memoir</a>
+                            <a href="{% url 'all_books' %}?category=other" class="dropdown-item">Other Non-Fiction</a>
+                            <a href="{% url 'all_books' %}?category=biography,other" class="dropdown-item">All Non-Fiction</a>
                         </div>
                     </li>
                     
@@ -51,9 +51,9 @@
                             Special Categories
                         </a>
                         <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                            <a href="" class="dropdown-item">Premium Books</a>
-                            <a href="" class="dropdown-item">Budget Friendly</a>
-                            <a href="" class="dropdown-item">All Categories</a>
+                            <a href="{% url 'all_books' %}?price_category=premium" class="dropdown-item">Premium Books</a>
+                            <a href="{% url 'all_books' %}?price_category=budget" class="dropdown-item">Budget Friendly</a>
+                            <a href="{% url 'all_books' %}" class="dropdown-item">All Categories</a>
                         </div>
                     </li>
                 </ul>

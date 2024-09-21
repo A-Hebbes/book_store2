@@ -1,3 +1,7 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def view_bookshelf(request):
+    """ View to render bookshelf page """
+
+    return render(request, 'bookshelf/bookshelf.html')

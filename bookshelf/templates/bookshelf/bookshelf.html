@@ -31,6 +31,7 @@
                                     <th scope="col">Price</th>
                                     <th scope="col">Qty</th>
                                     <th scope="col">Subtotal</th>
+                                    <th scope="col">Remove</th>
                                 </tr>
                             </thead>
 
@@ -55,6 +56,11 @@
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">€{{ item.book.price | floatformat:2 }}</p>
+                                    </td>
+                                    <td class="py-3">
+                                        <a href="{% url 'remove_from_bookshelf' item.book.book_id %}" class="btn btn-sm btn-danger">
+                                            <i class="fas fa-trash"></i> Remove
+                                        </a>
                                     </td>
                                 </tr>
                             {% endfor %}

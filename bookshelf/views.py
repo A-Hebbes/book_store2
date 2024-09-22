@@ -19,5 +19,4 @@ def add_to_bookshelf(request, book_id):
         bookshelf[book_id] = quantity
 
     request.session['bookshelf'] = bookshelf
-    print(request.session['bookshelf'])
     return redirect(redirect_url)

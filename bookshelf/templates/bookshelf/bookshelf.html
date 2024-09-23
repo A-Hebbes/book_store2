@@ -52,7 +52,17 @@
                                         <p class="my-0">€{{ item.book.price }}</p>
                                     </td>
                                     <td class="py-3 w-25">
-                                        <p class="my-0">{{ item.quantity }}</p>
+                                        <form class="form update-form" method="POST" action="">
+                                            {% csrf_token %}
+                                            <div class="form-group">
+                                                <select class="form-select form-select-sm quantity-select" name="quantity" id="id_qty_{{ item.book.book_id }}" data-item_id="{{ item.book.book_id }}">
+                                                    {% for i in '123456789'|make_list %}
+                                                        <option value="{{ i }}" {% if item.quantity == i|add:"0" %}selected{% endif %}>{{ i }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                            <input type="hidden" name="book_id" value="{{ item.book.book_id }}">
+                                        </form>
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">€{{ item.book.price | floatformat:2 }}</p>

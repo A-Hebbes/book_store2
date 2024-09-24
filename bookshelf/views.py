@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.urls import reverse
@@ -44,4 +45,22 @@ def remove_from_bookshelf(request, book_id):
         request.session['bookshelf'] = bookshelf
         messages.success(request, "Removed book from your bookshelf")
 
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        return JsonResponse({'status': 'success'})
+    else:
+        return redirect(reverse('view_bookshelf'))
+
+
+def adjust_bookshelf(request, book_id):
+    """Adjust the quantity """
+    quantity = int(request.POST.get('quantity'))
+    bookshelf = request.session.get('bookshelf', {})
+
+    if quantity > 0:
+        bookshelf[str(book_id)] = quantity
+    else:
+        bookshelf.pop(str(book_id))
+
+    request.session['bookshelf'] = bookshelf
+    messages.success(request, "Updated bookshelf quantity")
     return redirect(reverse('view_bookshelf'))

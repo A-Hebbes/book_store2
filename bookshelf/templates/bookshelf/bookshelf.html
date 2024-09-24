@@ -52,7 +52,7 @@
                                         <p class="my-0">€{{ item.book.price }}</p>
                                     </td>
                                     <td class="py-3 w-25">
-                                        <form class="form update-form" method="POST" action="">
+                                        <form class="form update-form" method="POST" action="{% url 'adjust_bookshelf' item.book.book_id %}">
                                             {% csrf_token %}
                                             <div class="form-group">
                                                 <select class="form-select form-select-sm quantity-select" name="quantity" id="id_qty_{{ item.book.book_id }}" data-item_id="{{ item.book.book_id }}">
@@ -118,4 +118,27 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+    // Update quantity on change
+    $('.quantity-select').change(function(e) {
+        var form = $(this).closest('form');
+        form.submit();
+    });
+
+    // Remove item and reload 
+    $('a.btn-danger').click(function(e) {
+        e.preventDefault();
+        var csrfToken = "{{ csrf_token }}";
+        var url = $(this).attr('href');
+        var data = {'csrfmiddlewaretoken': csrfToken};
+        $.post(url, data)
+         .done(function() {
+             location.reload();
+         });
+    });
+</script>
 {% endblock %}

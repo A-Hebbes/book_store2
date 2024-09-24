@@ -32,15 +32,7 @@
     {% endblock %}
 
     {% block extra_js %}
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-          document.querySelectorAll('.quantity-select').forEach(select => {
-              select.addEventListener('change', function() {
-                  this.closest('form').submit();
-              });
-          });
-      });
-  </script>
+    
     {% endblock %}
 
     <title>Bookshop {% block extra_title %}{% endblock %}</title>

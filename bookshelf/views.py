@@ -45,8 +45,21 @@ def remove_from_bookshelf(request, book_id):
         request.session['bookshelf'] = bookshelf
         messages.success(request, "Removed book from your bookshelf")
 
+    # Recalculate totals
+    total = sum(get_object_or_404(Book, book_id=int(id)).price * qty for id, qty in bookshelf.items())
+    delivery = calculate_delivery(total) 
+    grand_total = total + delivery
+
+
+
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
-        return JsonResponse({'status': 'success'})
+        return JsonResponse({
+            'status': 'success',
+            'new_total': total,
+            'new_delivery': delivery,
+            'new_grand_total': grand_total,
+            'bookshelf_items_count': len(bookshelf)
+            })
     else:
         return redirect(reverse('view_bookshelf'))
 

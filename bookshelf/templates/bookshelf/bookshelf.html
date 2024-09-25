@@ -36,7 +36,7 @@
                             </thead>
 
                             {% for item in bookshelf_items %}
-                                <tr>
+                                <tr data-book_id="{{ item.book.book_id }}">
                                     <td class="p-3 w-25">
                                         {% if item.book.image_path %}
                                             <img class="img-fluid rounded" src="{{ item.book.image_path.url }}" alt="{{ item.book.title }}">
@@ -65,7 +65,7 @@
                                         </form>
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0">€{{ item.book.price | floatformat:2 }}</p>
+                                        <p class="my-0 item-subtotal">€{{ item.book.price | floatformat:2 }}</p>
                                     </td>
                                     <td class="py-3">
                                         <a href="{% url 'remove_from_bookshelf' item.book.book_id %}" class="btn btn-sm btn-danger">
@@ -76,7 +76,7 @@
                             {% endfor %}
                             <tr>
                                 <td colspan="5" class="pt-5 text-right">
-                                    <h6><strong>Bookshelf Total: €{{ total|floatformat:2 }}</strong></h6>
+                                    <h6><strong>Bookshelf Total: €<span id="bookshelf-total">{{ total|floatformat:2 }}</span></strong></h6>
                                     <h6>Delivery: €{{ delivery|floatformat:2 }}</h6>
                                     <h4 class="mt-4"><strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong></h4>
                                     {% if free_delivery_delta > 0 %}

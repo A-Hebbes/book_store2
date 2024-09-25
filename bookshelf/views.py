@@ -76,4 +76,24 @@ def adjust_bookshelf(request, book_id):
 
     request.session['bookshelf'] = bookshelf
     messages.success(request, "Updated bookshelf quantity")
-    return redirect(reverse('view_bookshelf'))
+
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        # Recalculate totals
+        total = sum(get_object_or_404(Book, book_id=int(id)).price * qty for id, qty in bookshelf.items())
+        delivery = calculate_delivery(total) 
+        grand_total = total + delivery
+        
+        # New subtotal for adjusted book
+        book = get_object_or_404(Book, book_id=int(book_id))
+        new_subtotal = book.price * quantity
+
+        return JsonResponse({
+            'status': 'success',
+            'new_total': total,
+            'new_delivery': delivery,
+            'new_grand_total': grand_total,
+            'new_subtotal': new_subtotal
+        })
+    else:
+
+        return redirect(reverse('view_bookshelf'))

@@ -52,7 +52,7 @@
                                         <p class="my-0">€{{ item.book.price }}</p>
                                     </td>
                                     <td class="py-3 w-25">
-                                        <form class="form update-form" method="POST" action="{% url 'adjust_bookshelf' item.book.book_id %}">
+                                        <form class="form update-form" method="POST" action="{% url 'adjust_bookshelf' book.book_id %}">
                                             {% csrf_token %}
                                             <div class="form-group">
                                                 <select class="form-select form-select-sm quantity-select" name="quantity" id="id_qty_{{ item.book.book_id }}" data-item_id="{{ item.book.book_id }}">
@@ -123,71 +123,23 @@
 {% block postloadjs %}
 {{ block.super }}
 <script type="text/javascript">
-    // Update the quantity 
-    $('.quantity-select').change(function(e) {
-        e.preventDefault();
-        var form = $(this).closest('form');
-        var url = form.attr('action');
-        var bookId = $(this).data('item_id');
-        var quantity = $(this).val();
-        var csrfToken = $('input[name=csrfmiddlewaretoken]').val();
+    // Update quantity on click
+    $('.update-link').click(function(e) {
+        var form = $(this).prev('.update-form');
+        form.submit();
+    })
 
-        $.ajax({
-            url: url,
-            type: 'POST',
-            data: {
-                'csrfmiddlewaretoken': csrfToken,
-                'quantity': quantity,
-                'book_id': bookId
-            },
-            success: function(response) {
-                if(response.status === 'success') {
-                    // Update subtotal for the book
-                    $(`tr[data-book_id="${bookId}"] .item-subtotal`).text(`€${response.new_subtotal.toFixed(2)}`);
-                    // Update totals
-                    updateTotals(response.new_total, response.new_delivery, response.new_grand_total);
-                }
-            },
-            error: function(xhr, errmsg, err) {
-                console.log('Error:', errmsg);
-            }
-        });
-    });
-
-    // Remove a book without reloading page 
-    $('a.btn-danger').click(function(e) {
-        e.preventDefault();
+    // Remove book and reload on click
+    $('.remove-book').click(function(e) {
         var csrfToken = "{{ csrf_token }}";
-        var url = $(this).attr('href');
-        var bookId = $(this).data('book_id');
-        var data = {'csrfmiddlewaretoken': csrfToken};
+        var bookId = $(this).attr('id').split('remove_')[1];
+        var url = `/bookshelf/remove/${bookId}/`;
+        var data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
 
-        $.ajax({
-            url: url,
-            type: 'POST',
-            data: data,
-            success: function(response) {
-                if(response.status === 'success') {
-                    
-                    $(`tr[data-book_id="${bookId}"]`).remove();
-                    
-                    updateTotals(response.new_total, response.new_delivery, response.new_grand_total);
-                    
-                    if (response.bookshelf_items_count === 0) {
-                        location.reload(); 
-                    }
-                }
-            },
-            error: function(xhr, errmsg, err) {
-                console.log('Error:', errmsg);
-            }
-        });
-    });
-
-    function updateTotals(total, delivery, grandTotal) {
-        $('#bookshelf-total').text(`€${total.toFixed(2)}`);
-        $('#delivery-cost').text(`€${delivery.toFixed(2)}`);
-        $('#grand-total').text(`€${grandTotal.toFixed(2)}`);
-    }
+        $.post(url, data)
+         .done(function() {
+             location.reload();
+         });
+    })
 </script>
 {% endblock %}

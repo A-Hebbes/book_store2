@@ -31,7 +31,7 @@
                                     <th scope="col">Price</th>
                                     <th scope="col">Qty</th>
                                     <th scope="col">Subtotal</th>
-                                    <th scope="col">Remove</th>
+                                    <th scope="col">Actions</th>
                                 </tr>
                             </thead>
 
@@ -65,7 +65,7 @@
                                                         </button>
                                                     </div>
                                                     <input class="form-control form-control-sm qty_input" type="number"
-                                                        name="quantity" value="{{ item.quantity }}" min="1" max="99"
+                                                        name="quantity" value="{{ item.quantity }}" min="1" max="9"
                                                         data-item_id="{{ item.book.book_id }}"
                                                         id="id_qty_{{ item.book.book_id }}">
                                                     <div class="input-group-append">
@@ -79,15 +79,13 @@
                                                 </div>
                                             </div>
                                         </form>
-                                        <a class="update-link text-info"><small>Update</small></a>
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0 item-subtotal">€{{ item.book.price | floatformat:2 }}</p>
                                     </td>
                                     <td class="py-3">
-                                        <a class="remove-book text-danger" id="remove_{{ item.book.book_id }}">
-                                            <small>Remove</small>
-                                        </a>
+                                        <a class="update-link text-info" data-book_id="{{ item.book.book_id }}"><small>Update</small></a>
+                                        <a class="remove-book text-danger float-right" id="remove_{{ item.book.book_id }}"><small>Remove</small></a>
                                     </td>
                                 </tr>
                             {% endfor %}
@@ -139,12 +137,15 @@
 
 {% block postloadjs %}
 {{ block.super }}
+{% include 'books/includes/quantity_input_script.html' %}
+
 <script type="text/javascript">
     // Update quantity on click
     $('.update-link').click(function(e) {
-        var form = $(this).prev('.update-form');
+        e.preventDefault();
+        var form = $(this).closest('tr').find('.update-form');
         form.submit();
-    })
+    });
 
     // Remove book and reload on click
     $('.remove-book').click(function(e) {
@@ -157,6 +158,6 @@
          .done(function() {
              location.reload();
          });
-    })
+    });
 </script>
 {% endblock %}

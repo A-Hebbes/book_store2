@@ -52,7 +52,7 @@
                                         <p class="my-0">€{{ item.book.price }}</p>
                                     </td>
                                     <td class="py-3 w-25">
-                                        <form class="form update-form" method="POST" action="{% url 'adjust_bookshelf' book.book_id %}">
+                                        <form class="form update-form" method="POST" action="{% url 'adjust_bookshelf' item.book.book_id %}">
                                             {% csrf_token %}
                                             <div class="form-group">
                                                 <select class="form-select form-select-sm quantity-select" name="quantity" id="id_qty_{{ item.book.book_id }}" data-item_id="{{ item.book.book_id }}">

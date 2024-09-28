@@ -5,22 +5,8 @@ from django.urls import reverse
 from books.models import Book
 
 def view_bookshelf(request):
-    """ View to render bookshelf page """
-    bookshelf = request.session.get('bookshelf', {})
-    bookshelf_items = []
-
-    for book_id, quantity in bookshelf.items():
-        book = get_object_or_404(Book, book_id=int(book_id))
-        bookshelf_items.append({
-            'book': book,
-            'quantity': quantity,
-        })
-
-    context = {
-        'bookshelf_items': bookshelf_items,
-    }
-
-    return render(request, 'bookshelf/bookshelf.html', context)
+    """ A view to render bookshelf contents """
+    return render(request, 'bookshelf/bookshelf.html')
 
 def add_to_bookshelf(request, book_id):
     """ Add a quantity of the book to the bookshelf """

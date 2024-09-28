@@ -68,8 +68,8 @@
                                         <p class="my-0 item-subtotal">€{{ item.book.price | floatformat:2 }}</p>
                                     </td>
                                     <td class="py-3">
-                                        <a href="{% url 'remove_from_bookshelf' item.book.book_id %}" class="btn btn-sm btn-danger">
-                                            <i class="fas fa-trash"></i> Remove
+                                        <a class="remove-book text-danger" id="remove_{{ item.book.book_id }}">
+                                            <small>Remove</small>
                                         </a>
                                     </td>
                                 </tr>
@@ -134,7 +134,7 @@
         var csrfToken = "{{ csrf_token }}";
         var bookId = $(this).attr('id').split('remove_')[1];
         var url = `/bookshelf/remove/${bookId}/`;
-        var data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
+        var data = {'csrfmiddlewaretoken': csrfToken};
 
         $.post(url, data)
          .done(function() {

@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
 from django.contrib import messages
 from django.urls import reverse
 from books.models import Book
@@ -10,6 +10,7 @@ def view_bookshelf(request):
 
 def add_to_bookshelf(request, book_id):
     """ Add a quantity of the book to the bookshelf """
+    book = get_object_or_404(Book, pk=book_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     bookshelf = request.session.get('bookshelf', {})
@@ -23,8 +24,9 @@ def add_to_bookshelf(request, book_id):
     request.session['bookshelf'] = bookshelf
     return redirect(redirect_url)
 
+"""
 def remove_from_bookshelf(request, book_id):
-    """Remove the book from the bookshelf"""
+    
     bookshelf = request.session.get('bookshelf', {})
 
     if str(book_id) in bookshelf:
@@ -50,6 +52,23 @@ def remove_from_bookshelf(request, book_id):
     else:
         return redirect(reverse('view_bookshelf'))
 
+"""
+
+def remove_from_bookshelf(request, book_id):
+    """Remove the book from the bookshelf"""
+    try:
+        book = get_object_or_404(Book, pk=book_id)
+        bookshelf = request.session.get('bookshelf', {})
+
+        bookshelf.pop(str(book_id))
+        messages.success(request, f'Removed {book.title} from your bookshelf')
+
+        request.session['bookshelf'] = bookshelf
+        return HttpResponse(status=200)
+
+    except Exception as e:
+        messages.error(request, f'Error removing book: {e}')
+        return HttpResponse(status=500)
 
 def adjust_bookshelf(request, book_id):
     """Adjust the quantity """

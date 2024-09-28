@@ -182,6 +182,12 @@ body {
     height: auto;
 }
 
+/*button style*/ 
+
+.remove-book {
+    cursor: pointer;
+}
+
 /* -------------------------------- Media Queries */
 /* larger container on xl screens */
 @media (min-width: 1200px) {

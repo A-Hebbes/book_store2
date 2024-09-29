@@ -17,8 +17,12 @@ def add_to_bookshelf(request, book_id):
 
     if book_id in list(bookshelf.keys()):
         bookshelf[book_id] += quantity
+        messages.success(request, f'Updated quantity of {book.title} to {bookshelf[book_id]}')
     else:
         bookshelf[book_id] = quantity
+        messages.success(request, f'Added {book.title} to your bookshelf')
+
+
        
 
     request.session['bookshelf'] = bookshelf

@@ -126,7 +126,8 @@
     </header>
 
     {% if messages %}
-    <div class="message-container">
+    <!-- Comment to remove toasts for timebeing 
+    <div id="message-container" class="message-container">
       {% for message in messages %}
           {% with message.level as level %}
               {% if level == 40 %}                
@@ -141,6 +142,7 @@
           {% endwith %}
       {% endfor %}
   </div>
+  -->
 {% endif %}
 
     {% block page_header %}
@@ -155,14 +157,31 @@
       {% block footer %}
       {% endblock %}
     </footer>
-
-    
-    
+ 
 
     {% block postloadjs %}
     <script type="text/javascript">
-      $('.toast').toast('show');
-    </script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var toastElList = [].slice.call(document.querySelectorAll('.toast'));
+        var toastList = toastElList.map(function(toastEl) {
+            var toast = new bootstrap.Toast(toastEl, {
+                autohide: false
+            });
+            toast.show();
+            return toast;
+        });
+
+        // Add event listeners to close buttons
+        document.querySelectorAll('.toast .btn-close').forEach(function(closeButton) {
+            closeButton.addEventListener('click', function() {
+                var toast = bootstrap.Toast.getInstance(this.closest('.toast'));
+                if (toast) {
+                    toast.hide();
+                }
+            });
+        });
+    });
+  </script>
     {% endblock %}
 
   </body>

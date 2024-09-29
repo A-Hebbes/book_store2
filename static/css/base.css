@@ -109,6 +109,21 @@ body {
     height: 2px;
 }
 
+.toast {
+    max-width: 350px;
+    opacity: 1 !important;
+}
+
+.toast-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toast-body {
+    padding: 15px;
+}
+
 .dropdown-menu {
     z-index: 1032; 
 }
@@ -217,6 +232,26 @@ body {
     .header-container {
         padding-top: 160px;
     }
+}
+
+.message-container {
+    top: 116px;
+}
+
+
+.toast {
+max-width: 350px;
+opacity: 1 !important;
+}
+
+.toast-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.toast-body {
+padding: 15px;
 }
 
 /* Padding at the top for when navbar is collapsed on smaller screens */

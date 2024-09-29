@@ -101,6 +101,14 @@ body {
     z-index: 99999999999;
 }
 
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
 .dropdown-menu {
     z-index: 1032; 
 }

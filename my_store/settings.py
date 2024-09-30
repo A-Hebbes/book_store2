@@ -58,6 +58,8 @@ INSTALLED_APPS = [
     'bookshop',
     'books',
     'bookshelf',
+    'crispy_forms',
+    'crispy_bootstrap5',
     'checkout',
 ]
 
@@ -73,6 +75,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'my_store.urls'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 TEMPLATES = [
     {
@@ -91,8 +96,12 @@ TEMPLATES = [
                 'django.template.context_processors.media',
                 'bookshelf.contexts.bookshelf_contents',
             ],
+             'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ],
         },
-    },
+        },
 ]
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'

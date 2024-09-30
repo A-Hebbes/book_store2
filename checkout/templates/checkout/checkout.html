@@ -39,7 +39,7 @@
                 {% for item in bookshelf_items %}
                     <div class="row">
                         <div class="col-2 mb-1">
-                            <a href="{% url 'book_detail' item.book.id %}">
+                            <a href="{% url 'book_detail' item.book_id %}">
                                 {% if item.book.image %}
                                     <img class="w-100" src="{{ item.book.image.url }}" alt="{{ book.title }}">
                                 {% else %}

@@ -4,12 +4,18 @@ from django.contrib import messages
 from .forms import OrderForm
 from bookshelf.contexts import bookshelf_contents
 
+import stripe
+
 def checkout(request):
     bookshelf = request.session.get('bookshelf', {})
     if not bookshelf:
         messages.error(request, "Your bookshelf is empty at the moment")
         return redirect(reverse('books'))
     
+    current_bookshelf = bookshelf_contents(request)
+    total = current_bookshelf['grand_total']
+    stripe_total = round(total * 100)
+
     order_form = OrderForm()
     template = 'checkout/checkout.html'
     context = {

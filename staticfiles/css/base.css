@@ -1,0 +1,289 @@
+/* Base stylesh */
+html {
+    height: 100%;
+}
+
+body {
+    background: url('/media/Library-200.jpg') no-repeat center center fixed; 
+    background-size: cover;
+    height: calc(100vh - 160px); 
+    color: #333; 
+    font-family: 'Roboto', sans-serif; 
+}
+
+/* Icon from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+/* Logo  */
+.bookstore-font {
+    text-transform: uppercase;
+    letter-spacing: 2px; 
+}
+
+.bookshop-logo-link {
+    width: fit-content;
+    transition: opacity 0.3s ease; 
+}
+
+.bookshop-logo-link:hover {
+    opacity: 0.8;
+}
+
+.title-container {
+    background-color: white;
+    padding: 15px;
+    display: inline-block;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.title-container h1 {
+    margin-bottom: 0;
+    color: #333; 
+}
+
+/* "Browse Books" button */
+.browse-books-button {
+    background: #2c3e50; 
+    color: white;
+    min-width: 260px;
+    transition: all 0.3s ease; 
+}
+
+.browse-books-button:hover,
+.browse-books-button:active,
+.browse-books-button:focus {
+    background: #34495e; 
+    color: white;
+    transform: translateY(-2px); 
+}
+
+/* Text color override */
+.text-black {
+    color: #000 !important;
+}
+
+/* Border style  */
+.border-black {
+    border: 1px solid #000 !important;
+}
+
+.bg-black {
+    background: #000 !important;
+}
+
+/* Top nav  */
+#topnav {
+    background-color: #ffffff;
+    z-index: 1030;
+}
+
+/* Main Nav */ 
+
+#main-nav {
+    background-color: #ffffff;
+    z-index: 1031;
+}
+
+
+/* Django messages container*/
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
+.toast {
+    max-width: 350px;
+    opacity: 1 !important;
+}
+
+.toast-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toast-body {
+    padding: 15px;
+}
+
+.dropdown-menu {
+    z-index: 1032; 
+}
+
+/* book detail styles */
+
+.book-detail-container {
+    background-color: rgba(253, 236, 200, 0.9);
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.back-top-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(253, 236, 200, 0.9);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.back-top-link {
+    cursor: pointer;
+    color: #2c3e50;
+    font-size: 20px;
+}
+
+.back-top-button:hover {
+    background-color: rgba(253, 236, 200, 1);
+    transform: translateY(-2px);
+}
+
+/*bookshelf table styles */
+
+.table-responsive {
+    background-color: rgba(253, 236, 200, 0.9);
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.table {
+    background-color: transparent;
+}
+
+.table thead {
+    border-bottom: 2px solid #2c3e50;
+}
+
+.table td, .table th {
+    vertical-align: middle;
+}
+
+.checkout-button {
+    background: #2c3e50;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.checkout-button:hover,
+.checkout-button:active,
+.checkout-button:focus {
+    background: #34495e;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.table img {
+    max-width: 100px;
+    height: auto;
+}
+
+/*button style*/ 
+
+.remove-book {
+    cursor: pointer;
+}
+
+/* -------------------------------- Media Queries */
+/* larger container on xl screens */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 80%;
+  }
+}
+
+/* fixed top navbar only on medium and up */
+@media (min-width: 992px) {
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    .header-container {
+        padding-top: 160px;
+    }
+}
+
+.message-container {
+    top: 116px;
+}
+
+
+.toast {
+max-width: 350px;
+opacity: 1 !important;
+}
+
+.toast-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.toast-body {
+padding: 15px;
+}
+
+/* Padding at the top for when navbar is collapsed on smaller screens */
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 140px;
+    }
+    
+    body {
+        min-height: calc(100vh - 116px);
+    }
+}
+
+.quantity-select {
+    width: 50px !important; 
+    padding-right: 0.5rem !important; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-position: right 0.1rem center; 
+}
+
+@media (min-width: 768px) {
+    .book-detail-container {
+        padding: 30px;
+    }
+
+    .table-responsive {
+        padding: 10px;
+    }
+    
+    .table img {
+        max-width: 50px;
+    }
+}

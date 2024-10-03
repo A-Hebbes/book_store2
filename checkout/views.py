@@ -56,7 +56,7 @@ def checkout(request):
             order.save()
             for item_id, item_data in bookshelf.items():
                 try:
-                    book = Book.objects.get(id=item_id)
+                    book = Book.objects.get(book_id=item_id)
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
                             order=order,
@@ -160,6 +160,8 @@ def checkout_success(request, order_number):
     messages.success(request, f'Order successfully processed \
         Order number {order_number}. Confirmation \
          will be sent to {order.email}.')
+
+    #At this line at this indentation this is where send mail functionality must go
 
     if 'bookshelf' in request.session:
         del request.session['bookshelf']

@@ -1,4 +1,5 @@
 from django import forms
+from django.utils.text import slugify
 from .models import Book, BOOK_CATEGORIES
 
 class BookForm(forms.ModelForm):
@@ -27,6 +28,27 @@ class BookForm(forms.ModelForm):
             # Handle the image file and set image_path
             # This part depends on how you want to store and name your files
             instance.image_path = f"books/{self.cleaned_data['image'].name}"
+        if commit:
+            instance.save()
+        return instance
+
+        """
+        SEEMS GOOD TO HERE - ADDING SLUG CREATION
+        """
+    def save(self, commit=True):
+        instance = super().save(commit=False)
+        if self.cleaned_data.get('image'):
+            instance.image_path = f"books/{self.cleaned_data['image'].name}"
+        
+        # Generate a unique slug
+        base_slug = slugify(instance.title)
+        unique_slug = base_slug
+        num = 1
+        while Book.objects.filter(slug=unique_slug).exists():
+            unique_slug = f"{base_slug}-{num}"
+            num += 1
+        instance.slug = unique_slug
+
         if commit:
             instance.save()
         return instance

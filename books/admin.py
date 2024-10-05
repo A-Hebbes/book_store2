@@ -8,7 +8,10 @@ class BookAdmin(admin.ModelAdmin):
         'isbn',
         'category',
         'price',
-        'image_path',
+        'image',
     )
+    search_fields = ('title', 'author', 'isbn')
+    list_filter = ('category',)
+    prepopulated_fields = {'slug': ('title',)}
 
 admin.site.register(Book, BookAdmin)

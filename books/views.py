@@ -107,4 +107,11 @@ def edit_book(request, book_id):
         'book': book,
     }
     return render(request, template, context)
+
+def delete_book(request, book_id):
+    """ Delete a book from the store """
+    book = get_object_or_404(Book, pk=book_id)
+    book.delete()
+    messages.success(request, 'The book has been deleted')
+    return redirect(reverse('all_books'))
     

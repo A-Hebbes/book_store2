@@ -1,4 +1,5 @@
 from django import forms
+from .widgets import CustomClearableFileInput
 from django.utils.text import slugify
 from .models import Book, BOOK_CATEGORIES
 
@@ -10,6 +11,7 @@ class BookForm(forms.ModelForm):
         fields = ['title', 'author', 'isbn', 'price', 'category', 'description', 'image']
     
     category = forms.ChoiceField(choices=BOOK_CATEGORIES)
+    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

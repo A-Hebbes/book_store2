@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
-from django.contrib.auth.decorators import superuser_required, login_required
+from django.contrib.auth.decorators import login_required
+from .decorators import superuser_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import Book, BOOK_CATEGORIES

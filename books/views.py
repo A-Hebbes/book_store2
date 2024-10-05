@@ -94,7 +94,7 @@ def edit_book(request, book_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'The book has been updated')
-            return redirect(reverse('book_detail', args=[book.id]))
+            return redirect(reverse('book_detail', args=[book.book_id]))
         else:
             messages.error(request, 'Your book was not updated. Check teh form and resubmit')
     else:

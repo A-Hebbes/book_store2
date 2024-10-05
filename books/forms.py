@@ -7,7 +7,7 @@ class BookForm(forms.ModelForm):
     
     class Meta:
         model = Book
-        fields = ['title', 'author', 'isbn', 'price', 'category', 'description']
+        fields = ['title', 'author', 'isbn', 'price', 'category', 'description', 'image']
     
     category = forms.ChoiceField(choices=BOOK_CATEGORIES)
 

@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import Book, BOOK_CATEGORIES
+from .forms import BookForm
 
 def all_books(request):
     books = Book.objects.all()
@@ -65,3 +66,13 @@ def book_detail(request, book_id):
         'book': book,
     }
     return render(request, 'books/book_detail.html', context)
+
+def add_book(request):
+    """ Add a book to the store """
+    form = BookForm()
+    template = 'books/add_book.html'
+    context = {
+        'form': form,
+    }
+    return render(request, template, context)
+    

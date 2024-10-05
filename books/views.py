@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import superuser_required, login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import Book, BOOK_CATEGORIES
@@ -67,14 +68,16 @@ def book_detail(request, book_id):
     }
     return render(request, 'books/book_detail.html', context)
 
+@login_required
+@superuser_required
 def add_book(request):
     """ Add a book to the store """
     if request.method == 'POST':
         form = BookForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            book = form.save()
             messages.success(request, 'Your Book Has Been Added')
-            return redirect(reverse('add_book'))
+            return redirect(reverse('book_detail', args=[book.book_id]))
         else:
             messages.error(request, 'Your Book was not updated. Check the form and resubmit')
     else:
@@ -86,6 +89,8 @@ def add_book(request):
     }
     return render(request, template, context)
 
+@login_required
+@superuser_required
 def edit_book(request, book_id):
     """ Edit a book in the store """
     book = get_object_or_404(Book, pk=book_id)
@@ -108,6 +113,8 @@ def edit_book(request, book_id):
     }
     return render(request, template, context)
 
+@login_required
+@superuser_required
 def delete_book(request, book_id):
     """ Delete a book from the store """
     book = get_object_or_404(Book, pk=book_id)

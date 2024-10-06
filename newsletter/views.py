@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
+from django.contrib import messages
 from .forms import NewsletterForm
-
-# Create your views here.
 
 def newsletter_signup(request):
     if request.method == 'POST':
@@ -9,8 +9,10 @@ def newsletter_signup(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'You have successfully subscribed')
-            return redirect(reverse('all_books'))  
+            return redirect(reverse('all_books'))
+        else:
+            messages.error(request, 'Something went wrong. Please check the form and resubmit.')
     else:
         form = NewsletterForm()
-        messages.error(request, 'Something went wrong. Check the form and resubmit')
-        return render(request, 'newsletter/signup.html', {'form': form})
+    
+    return render(request, 'newsletter/signup.html', {'form': form})

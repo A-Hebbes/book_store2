@@ -211,16 +211,22 @@ body {
     cursor: pointer;
 }
 
+
 /* Newsletter Signup Styles */
+.newsletter-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 160px); /* Adjust this value based on your header/footer height */
+    padding: 1rem;
+}
+
 .newsletter-container {
     background-color: rgba(253, 236, 200, 0.9);
     border-radius: 0.5rem;
     padding: 1.25rem;
-    margin-top: 1.875rem;
-    margin-bottom: 1.875rem;
     max-width: 31.25rem;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
 }
 
 .newsletter-form {
@@ -254,6 +260,7 @@ body {
     background: #34495e;
     transform: translateY(-2px);
 }
+
 
 /* -------------------------------- Media Queries */
 /* larger container on xl screens */
@@ -335,6 +342,8 @@ padding: 15px;
 @media (max-width: 48rem) {
     .newsletter-container {
         padding: 0.9375rem;
-        width: 90%;
+        
     }
 }
+
+

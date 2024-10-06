@@ -1,0 +1,7 @@
+<div class="newsletter-container"></div>
+    <form method="post class="newsletter-form">
+        {% csrf_token %}
+        {{ form.email }}
+        <button type="submit">Sign up for newsletter</button>
+    </form>
+</div>

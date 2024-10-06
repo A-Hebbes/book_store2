@@ -331,3 +331,10 @@ padding: 15px;
         max-width: 50px;
     }
 }
+
+@media (max-width: 48rem) {
+    .newsletter-container {
+        padding: 0.9375rem;
+        width: 90%;
+    }
+}

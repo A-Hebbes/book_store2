@@ -223,6 +223,38 @@ body {
     margin-right: auto;
 }
 
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.newsletter-form input[type="email"] {
+    width: 100%;
+    padding: 0.625rem;
+    margin-bottom: 0.9375rem;
+    border: 1px solid #2c3e50;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+}
+
+.newsletter-form button[type="submit"] {
+    background: #2c3e50;
+    color: white;
+    border: none;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form button[type="submit"]:hover,
+.newsletter-form button[type="submit"]:focus {
+    background: #34495e;
+    transform: translateY(-2px);
+}
+
 /* -------------------------------- Media Queries */
 /* larger container on xl screens */
 @media (min-width: 1200px) {

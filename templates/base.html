@@ -45,6 +45,7 @@
   </head>
 
   <body>
+    
     <header class="container-fluid fixed-top">
       <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
@@ -82,10 +83,12 @@
                           <li><a class="dropdown-item" href="{% url 'add_book' %}">Book Management</a></li>
                       {% endif %}
                       <li><a class="dropdown-item" href="">My Profile</a></li>
+                      <li><a class="dropdown-item" href="{% url 'newsletter_signup' %}">Contact Us</a></li>
                       <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
                   {% else %}
                       <li><a class="dropdown-item" href="{% url 'account_signup' %}">Join Bookstore</a></li>
                       <li><a class="dropdown-item" href="{% url 'account_login' %}">Sign In</a></li>
+                      <li><a class="dropdown-item" href="{% url 'newsletter_signup' %}">Contact Us</a></li>
                   {% endif %}
               </ul>
           </li>
@@ -126,6 +129,7 @@
       </div>
     </div>
     </header>
+  
 
     {% if messages %}
     <!-- Comment to remove toasts for timebeing 

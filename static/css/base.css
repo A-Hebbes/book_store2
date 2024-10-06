@@ -261,7 +261,38 @@ body {
     transform: translateY(-2px);
 }
 
-
+@media (max-width: 991px) {
+    .navbar-nav {
+      padding-top: 1rem;
+    }
+    
+    .navbar-nav .nav-item {
+      text-align: center;
+    }
+    
+    .navbar .dropdown-menu {
+      text-align: center;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .navbar .dropdown-menu {
+      margin-top: 0;
+    }
+    
+    .navbar .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+  }
+  
+  .navbar .dropdown-menu {
+    border: none;
+    background-color: #f8f9fa;
+  }
+  
+  .navbar .nav-link {
+    padding: 0.5rem 1rem;
+  }
 /* -------------------------------- Media Queries */
 /* larger container on xl screens */
 @media (min-width: 1200px) {

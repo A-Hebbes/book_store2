@@ -15,6 +15,6 @@ def contact_view(request):
         else:
             messages.error(request, 'Something went wrong. Please check the form and resubmit.')
     else:
-        form = ConatctForm()
+        form = ContactForm()
     
     return render(request, 'contact/contact.html', {'form': form})

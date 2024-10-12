@@ -211,26 +211,56 @@ body {
     cursor: pointer;
 }
 
-/* Widget Styles */
-.custom-image-widget .btn-file {
-    position: relative;
-    overflow: hidden;
+
+/* Newsletter Signup Styles */
+.newsletter-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 160px); /* Adjust this value based on your header/footer height */
+    padding: 1rem;
 }
-.custom-image-widget .btn-file input[type=file] {
-    position: absolute;
-    top: 0;
-    right: 0;
-    min-width: 100%;
-    min-height: 100%;
-    font-size: 100px;
-    text-align: right;
-    filter: alpha(opacity=0);
-    opacity: 0;
-    outline: none;
-    background: white;
-    cursor: inherit;
-    display: block;
+
+.newsletter-container {
+    background-color: rgba(253, 236, 200, 0.9);
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    max-width: 31.25rem;
+    width: 100%;
 }
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.newsletter-form input[type="email"] {
+    width: 100%;
+    padding: 0.625rem;
+    margin-bottom: 0.9375rem;
+    border: 1px solid #2c3e50;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+}
+
+.newsletter-form button[type="submit"] {
+    background: #2c3e50;
+    color: white;
+    border: none;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form button[type="submit"]:hover,
+.newsletter-form button[type="submit"]:focus {
+    background: #34495e;
+    transform: translateY(-2px);
+}
+
 
 /* -------------------------------- Media Queries */
 /* larger container on xl screens */
@@ -308,3 +338,12 @@ padding: 15px;
         max-width: 50px;
     }
 }
+
+@media (max-width: 48rem) {
+    .newsletter-container {
+        padding: 0.9375rem;
+        
+    }
+}
+
+

@@ -1,1 +1,1 @@
-Order Confirmation for Order Number {{ order.order_number }}
+Bookshop Order Confirmation for Order Number {{ order.order_number }}

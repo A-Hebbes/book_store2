@@ -1,0 +1,33 @@
+Hello {{ order.full_name }},
+
+This is a confirmation of your order at The Bookshop. Your order information is below:
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.date }}
+
+Order Details:
+{% for item in order.lineitems.all %}
+"{{ item.book.title }}" - Quantity: {{ item.quantity }} - Price: €{{ item.lineitem_total }}
+{% endfor %}
+
+Order Total: €{{ order.order_total }}
+Delivery: €{{ order.delivery_cost }}
+Grand Total: €{{ order.grand_total }}
+
+Your order will be shipped to:
+{{ order.address_line1 }}
+{% if order.address_line2 %}{{ order.address_line2 }}{% endif %}
+{{ order.city }}
+{% if order.county %}{{ order.county }}{% endif %}
+{{ order.postal_code }}
+{{ order.country }}
+
+We've got your phone number on file as {{ order.phone_number }}.
+
+If you have any questions, feel free to contact us at {{ contact_email }}.
+
+Thank you for your order
+
+Sincerely,
+
+The Book Shop 

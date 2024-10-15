@@ -162,7 +162,8 @@ def checkout_success(request, order_number):
         Order number {order_number}. Confirmation \
          will be sent to {order.email}.')
 
-    #At this line at this indentation this is where send mail functionality must go
+     # Send the confirmation email
+    send_confirmation_email(order)
 
     if 'bookshelf' in request.session:
         del request.session['bookshelf']

@@ -7,6 +7,7 @@ from .forms import OrderForm
 from .models import Order, OrderLineItem
 from books.models import Book
 from bookshelf.contexts import bookshelf_contents
+from .utils import send_confirmation_email
 
 import stripe
 import json

@@ -1,6 +1,14 @@
+from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
+
+from .models import Order, OrderLineItem
+from books.models import Book
+
+import logging
+
+logger = logging.getLogger(__name__)
 
 def send_confirmation_email(order):
     """Send the user a confirmation email"""

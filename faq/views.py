@@ -3,4 +3,4 @@ from .models import FAQ
 
 def faq_list(request):
     faqs = FAQ.objects.all().order_by('-created_at')
-    return render(request, 'faq/faq_list.html', {'faqs': faqs})
+    return render(request, 'faq/faq.html', {'faqs': faqs})

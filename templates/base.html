@@ -83,12 +83,14 @@
                           <li><a class="dropdown-item" href="{% url 'add_book' %}">Book Management</a></li>
                       {% endif %}
                       <li><a class="dropdown-item" href="">My Profile</a></li>
-                      <li><a class="dropdown-item" href="{% url 'newsletter_signup' %}">Contact Us</a></li>
+                      <li><a class="dropdown-item" href="{% url 'newsletter_signup' %}">Newsletter</a></li>
+                      <li><a class="dropdown-item" href="{% url 'contact' %}">Contact Us</a></li>
                       <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
                   {% else %}
                       <li><a class="dropdown-item" href="{% url 'account_signup' %}">Join Bookstore</a></li>
                       <li><a class="dropdown-item" href="{% url 'account_login' %}">Sign In</a></li>
-                      <li><a class="dropdown-item" href="{% url 'newsletter_signup' %}">Contact Us</a></li>
+                      <li><a class="dropdown-item" href="{% url 'newsletter_signup' %}">Newsletter</a></li>
+                      <li><a class="dropdown-item" href="{% url 'contact' %}">Contact Us</a></li>
                   {% endif %}
               </ul>
           </li>

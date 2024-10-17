@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_title %}| Discover Your Next Great Read{% endblock %}
+
+{% block extra_meta %}
+    <meta name="description" content="Explore a vast collection of paperback books at our Wexford bookshop. From bestsellers to hidden gems, find your next great read today.">
+{% endblock %}
+
+
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
@@ -14,16 +21,28 @@
         <div class="row h-100">
             <div class="col-12 col-md-8 my-auto">
                 <h1 class="display-4 bookstore-font text-black">
-                    Discover Your Next Great Read
+                    Discover Your Next Great Read At The Bookstore, Wexford
                 </h1>
                 <p class="lead">
-                    From bestsellers to hidden gems, our shelves are waiting to be explored.
+                    From bestsellers to hidden gems, our shelves are waiting to be explored. Find quality paperbacks at affordable prices.
                 </p>
                 <div class="my-5">
-                    <h4>
+                    <h2>
                         <a href="{% url 'all_books' %}" class="browse-books-button btn btn-lg rounded-0 text-uppercase py-3">Browse Books</a>
-                    </h4>
+                    </h2>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="text-center mb-4">Welcome to  The Bookstore Wexford</h3>
+                <p>Nestled in the heart of Wexford, The Bookstore is your go-to destination for quality paperback books at affordable prices. We're passionate about bringing the joy of reading to book lovers locally and nationwide via our website.</p>
+                <p>Our carefully curated collection spans a wide range of genres, from gripping fiction and thought-provoking non-fiction to works by celebrated Irish authors and international bestsellers. Whether you're a casual reader or a dedicated bibliophile, you'll find something to pique your interest on our shelves.</p>
+                <p>At The Bookstore, we believe that everyone should have access to great literature. That's why we focus on paperbacks - they're portable, affordable, and perfect for a rainy afternoon. Our commitment to competitive pricing means you can read to your heart's content without breaking the bank.</p>
+                <p>Explore our virtual shelves, discover new authors, and rediscover old favorites. With our user-friendly website and efficient delivery service, your next literary adventure is just a click away. Welcome to The Bookstore, Wexford - where every book tells a story, and every reader finds their perfect match.</p>
             </div>
         </div>
     </div>

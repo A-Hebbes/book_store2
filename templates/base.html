@@ -8,6 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Discover a wide range of paperback books at our Irish bookshop. Find bestsellers, local authors, and great deals on fiction and non-fiction books.">
     {% endblock %}
 
     {% block extra_meta %}
@@ -37,7 +38,7 @@
     
     {% endblock %}
 
-    <title>Bookshop {% block extra_title %}{% endblock %}</title>
+    <title>Irish Paperback Bookshop | Quality Books at Affordable Prices {% block extra_title %}{% endblock %}</title>
     <!-- CSRF Token -->
     <script>
       var csrftoken = '{{ csrf_token }}';
@@ -84,12 +85,14 @@
                       {% endif %}
                       <li><a class="dropdown-item" href="">My Profile</a></li>
                       <li><a class="dropdown-item" href="{% url 'newsletter_signup' %}">Newsletter</a></li>
+                      <li><a class="dropdown-item" href="{% url 'faq_list' %}">FAQ</a></li>
                       <li><a class="dropdown-item" href="{% url 'contact' %}">Contact Us</a></li>
                       <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
                   {% else %}
                       <li><a class="dropdown-item" href="{% url 'account_signup' %}">Join Bookstore</a></li>
                       <li><a class="dropdown-item" href="{% url 'account_login' %}">Sign In</a></li>
                       <li><a class="dropdown-item" href="{% url 'newsletter_signup' %}">Newsletter</a></li>
+                      <li><a class="dropdown-item" href="{% url 'faq_list' %}">FAQ</a></li>
                       <li><a class="dropdown-item" href="{% url 'contact' %}">Contact Us</a></li>
                   {% endif %}
               </ul>

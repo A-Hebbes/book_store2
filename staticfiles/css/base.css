@@ -112,6 +112,43 @@ main {
     border-color: #34495e !important;
 }
 
+/*Contact Form Styles*/
+
+.contact-card {
+    background-color: rgba(253, 236, 200, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.contact-card .card-title {
+    color: #2c3e50;
+}
+
+.contact-form .form-control {
+    border-color: #2c3e50;
+    color: #333;
+}
+
+.contact-form .form-control:focus {
+    border-color: #34495e;
+    box-shadow: 0 0 0 0.2rem rgba(52, 73, 94, 0.25);
+}
+
+.contact-submit-btn {
+    background-color: #2c3e50;
+    border-color: #2c3e50;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.contact-submit-btn:hover,
+.contact-submit-btn:focus {
+    background-color: #34495e;
+    border-color: #34495e;
+    color: white;
+    transform: translateY(-2px);
+}
+
 /* Utility classes */
 .text-black {
     color: #000 !important;

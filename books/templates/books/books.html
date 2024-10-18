@@ -75,22 +75,12 @@
         </div>
     </div>
 
-    <div class="back-top-button shadow-sm rounded-0 border border-black">
-        <a class="back-top-link d-flex h-100">
-            <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
-        </a>
-    </div>
+    
 
 {% endblock %}
 
 {% block postloadjs %}
     {{ block.super }}
-    <script type="text/javascript">
-		$('.btt-link').click(function(e) {
-			window.scrollTo(0,0)
-		})
-	</script>
-    
     <script type="text/javascript">
         $('#sort-selector').change(function() {
             var selector = $(this);
@@ -112,9 +102,5 @@
                 window.location.replace(currentUrl);
             }
         })
-
-        $('.back-top-link').click(function(e) {
-    window.scrollTo(0,0);
-})
     </script>
 {% endblock %}

@@ -72,6 +72,14 @@ main {
     color: #333; 
 }
 
+.navbar {
+    width: 100%;
+}
+
+.content-adjustment {
+    margin-top: 500px; 
+}
+
 /* Button styles */
 .browse-books-button {
     background: #2c3e50; 

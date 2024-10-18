@@ -166,13 +166,27 @@
 
 
     {% block footer %}
-    <footer>
-      <div class="social-links">
-        <a href="https://www.facebook.com/profile.php?id=61567552192724" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-          <i class="fab fa-facebook-f" aria-hidden="true"></i>
-        </a>
+    <footer class="footer bg-dark text-white py-3 fixed-bottom">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+            <span class="footer-text">The Bookstore</span>
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <div class="social-links">
+              <a href="#" class="social-link text-white me-3" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-link text-white me-3" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="social-link text-white" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-      <p>The Bookstore, Wexford</p>
     </footer>
       {% endblock %}
  

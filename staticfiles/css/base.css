@@ -1,17 +1,39 @@
-/* Base stylesh */
+/* Base styles */
 html {
     height: 100%;
 }
 
 body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     background: url('/media/Library-200.jpg') no-repeat center center fixed; 
     background-size: cover;
-    height: calc(100vh - 160px); 
     color: #333; 
     font-family: 'Roboto', sans-serif; 
 }
 
-/* Icon from Bulma */
+main {
+    flex: 1 0 auto;
+    padding-bottom: var(--footer-height); 
+}
+
+/* Footer styles */
+:root {
+    --footer-height: 3.75rem;
+    --footer-background: #2c3e50;
+    --footer-text-color: #ffffff;
+}
+
+.footer {
+    flex-shrink: 0;
+    height: var(--footer-height);
+    background-color: var(--footer-background);
+    color: var(--footer-text-color);
+    padding: 0.625rem 0;
+}
+
+/* Icon styles */
 .icon {
     align-items: center;
     display: inline-flex;
@@ -20,7 +42,7 @@ body {
     width: 1.5rem;
 }
 
-/* Logo  */
+/* Logo styles */
 .bookstore-font {
     text-transform: uppercase;
     letter-spacing: 2px; 
@@ -35,6 +57,7 @@ body {
     opacity: 0.8;
 }
 
+/* Title container styles */
 .title-container {
     background-color: white;
     padding: 15px;
@@ -49,7 +72,7 @@ body {
     color: #333; 
 }
 
-/* "Browse Books" button */
+/* Button styles */
 .browse-books-button {
     background: #2c3e50; 
     color: white;
@@ -65,12 +88,11 @@ body {
     transform: translateY(-2px); 
 }
 
-/* Text color override */
+/* Utility classes */
 .text-black {
     color: #000 !important;
 }
 
-/* Border style  */
 .border-black {
     border: 1px solid #000 !important;
 }
@@ -79,21 +101,20 @@ body {
     background: #000 !important;
 }
 
-/* Top nav  */
-#topnav {
+/* Navigation styles */
+#topnav, #main-nav {
     background-color: #ffffff;
+}
+
+#topnav {
     z-index: 1030;
 }
 
-/* Main Nav */ 
-
 #main-nav {
-    background-color: #ffffff;
     z-index: 1031;
 }
 
-
-/* Django messages container*/
+/* Message container styles */
 .message-container {
     position: fixed;
     top: 72px;
@@ -101,6 +122,7 @@ body {
     z-index: 99999999999;
 }
 
+/* Toast styles */
 .custom-toast {
     overflow: visible;
 }
@@ -128,8 +150,7 @@ body {
     z-index: 1032; 
 }
 
-/* book detail styles */
-
+/* Book detail styles */
 .book-detail-container {
     background-color: rgba(253, 236, 200, 0.9);
     border-radius: 8px;
@@ -138,6 +159,7 @@ body {
     margin-bottom: 30px;
 }
 
+/* Back to top button styles */
 .back-top-button {
     height: 42px;
     width: 42px;
@@ -164,8 +186,7 @@ body {
     transform: translateY(-2px);
 }
 
-/*bookshelf table styles */
-
+/* Bookshelf table styles */
 .table-responsive {
     background-color: rgba(253, 236, 200, 0.9);
     border-radius: 8px;
@@ -186,6 +207,12 @@ body {
     vertical-align: middle;
 }
 
+.table img {
+    max-width: 100px;
+    height: auto;
+}
+
+/* Checkout button styles */
 .checkout-button {
     background: #2c3e50;
     color: white;
@@ -200,24 +227,17 @@ body {
     transform: translateY(-2px);
 }
 
-.table img {
-    max-width: 100px;
-    height: auto;
-}
-
-/*button style*/ 
-
+/* Remove book button styles */
 .remove-book {
     cursor: pointer;
 }
 
-
-/* Newsletter Signup Styles */
+/* Newsletter signup styles */
 .newsletter-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - 160px); /* Adjust this value based on your header/footer height */
+    min-height: calc(100vh - 160px);
     padding: 1rem;
 }
 
@@ -261,8 +281,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* Footer Styles */
-
+/* Footer styles */
 .footer {
     position: fixed;
     left: 0;
@@ -280,24 +299,24 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 75rem; /* 1200px */
+    max-width: 75rem;
     margin: 0 auto;
     padding: 0 1.25rem;
     height: 100%;
 }
 
 .footer-text {
-    font-size: 0.875rem; /* 14px */
+    font-size: 0.875rem;
 }
 
 .social-links {
     display: flex;
-    gap: 0.9375rem; /* 15px */
+    gap: 0.9375rem;
 }
 
 .social-link {
     color: white;
-    font-size: 1.125rem; /* 18px */
+    font-size: 1.125rem;
     transition: color 0.3s ease;
 }
 
@@ -305,15 +324,13 @@ body {
     color: #ecf0f1;
 }
 
-/* -------------------------------- Media Queries */
-/* larger container on xl screens */
+/* Media Queries */
 @media (min-width: 1200px) {
-  .container {
-    max-width: 80%;
-  }
+    .container {
+        max-width: 80%;
+    }
 }
 
-/* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
     .fixed-top-desktop-only {
         position: fixed;
@@ -328,27 +345,6 @@ body {
     }
 }
 
-.message-container {
-    top: 116px;
-}
-
-
-.toast {
-max-width: 350px;
-opacity: 1 !important;
-}
-
-.toast-header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-}
-
-.toast-body {
-padding: 15px;
-}
-
-/* Padding at the top for when navbar is collapsed on smaller screens */
 @media (max-width: 991px) {
     .header-container {
         padding-top: 140px;
@@ -358,16 +354,6 @@ padding: 15px;
         min-height: calc(100vh - 116px);
     }
 }
-
-.quantity-select {
-    width: 50px !important; 
-    padding-right: 0.5rem !important; 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background-position: right 0.1rem center; 
-}
-
 
 @media (min-width: 768px) {
     .book-detail-container {
@@ -383,13 +369,18 @@ padding: 15px;
     }
 }
 
-
-
 @media (max-width: 48rem) {
     .newsletter-container {
         padding: 0.9375rem;
-        
     }
 }
 
-
+/* Quantity select styles */
+.quantity-select {
+    width: 50px !important; 
+    padding-right: 0.5rem !important; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-position: right 0.1rem center; 
+}

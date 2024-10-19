@@ -333,23 +333,6 @@ body {
     transform: translateY(-2px);
 }
 
-
-.login-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: calc(100vh - 160px);
-    padding: 1rem;
-}
-
-.login-container {
-    background-color: rgba(253, 236, 200, 0.9);
-    border-radius: 8px;
-    padding: 20px;
-    max-width: 500px;
-    width: 100%;
-}
-
 .login-form {
     display: flex;
     flex-direction: column;

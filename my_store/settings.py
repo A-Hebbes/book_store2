@@ -226,7 +226,7 @@ STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 
 if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    DEFAULT_FROM_EMAIL = 'n7dvlfsh@students.codeinstitute.net'
+    DEFAULT_FROM_EMAIL = 'test@email.com'
 
 else: 
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

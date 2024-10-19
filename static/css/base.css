@@ -94,6 +94,11 @@ body {
     z-index: 1031;
 }
 
+#main-nav-mobile {
+    background-color: #ffffff;
+    z-index: 1031;
+}
+
 
 /* Django messages container*/
 .message-container {

@@ -333,6 +333,62 @@ body {
     transform: translateY(-2px);
 }
 
+
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 160px);
+    padding: 1rem;
+}
+
+.login-container {
+    background-color: rgba(253, 236, 200, 0.9);
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-button {
+    background: #2c3e50;
+    color: white;
+    border: none;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.login-options {
+    margin-top: 1rem;
+}
+
+.login-option-button {
+    background: #2c3e50;
+    color: white;
+    border: none;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 0.5rem;
+}
+
+.login-option-button:hover,
+.login-option-button:focus {
+    background: #34495e;
+    transform: translateY(-2px);
+}
+
+
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
     .fixed-top-desktop-only {

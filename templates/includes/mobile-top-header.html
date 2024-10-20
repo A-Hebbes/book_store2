@@ -20,13 +20,13 @@
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link" href="#" id="user-options-mobile" data-bs-toggle="dropdown" aria-expanded="false">
+        <a class="nav-link" href="#" id="user-options" data-bs-toggle="dropdown" aria-expanded="false">
           <div class="text-center">
             <div><i class="fas fa-user fa-lg"></i></div>
             <p class="my-0 text-dark">My Account</p>
           </div>
         </a>
-        <ul class="dropdown-menu" aria-labelledby="mobile-user-options">
+        <ul class="dropdown-menu" aria-labelledby="user-options">
           {% if request.user.is_authenticated %}
             {% if request.user.is_superuser %}
               <li><a class="dropdown-item" href="{% url 'add_book' %}">Book Management</a></li>

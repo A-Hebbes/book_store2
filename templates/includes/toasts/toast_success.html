@@ -1,17 +1,32 @@
-<div class="toast custom-toast rounded-0 border-top-0" data-autohide="false">
+<div class="toast custom-toast rounded-0 border-top-0" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="arrow-up arrow-success"></div>
-    <div class="w-100 toast-capper bg-success"></div>
     <div class="toast-header bg-white text-dark">
-        <strong class="mr-auto">Success!</strong>
-        <button type="button" class="ml-2 mb-1 close text-dark" data-dismiss="toast" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
+        <strong class="me-auto">Success!</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
     <div class="toast-body bg-white">
         <div class="row">
             <div class="col">
                 {{ message }}
-                
+                <hr class="mt-1 mb-3">
             </div>
-        </div> 
-        
+        </div>
+        {% if additional_content %}
+            <div class="additional-content-wrapper">
+                {{ additional_content }}
+            </div>
+        {% endif %}
+        {% if action_url and action_text %}
+            <div class="row mt-3">
+                <div class="col">
+                    <a href="{{ action_url }}" class="btn btn-dark btn-block">
+                        <span class="text-uppercase">{{ action_text }}</span>
+                        <span class="icon">
+                            <i class="fas fa-chevron-right"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>

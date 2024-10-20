@@ -371,6 +371,27 @@ body {
     transform: translateY(-2px);
 }
 
+/*Mobile Nav Styles */
+.navbar .dropdown-menu {
+    background-color: #f8f9fa; 
+  }
+  
+  .navbar .dropdown-menu .dropdown-item {
+    color: #212529; 
+  }
+  
+  .navbar .dropdown-menu .dropdown-item:hover,
+  .navbar .dropdown-menu .dropdown-item:focus {
+    background-color: #e9ecef;  
+  }
+  
+ 
+  @media (max-width: 992px) {
+    .navbar-nav .nav-link {
+      color: #212529 !important;  
+    }
+  }
+
 
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {

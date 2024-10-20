@@ -31,7 +31,6 @@
             {% if request.user.is_superuser %}
               <li><a class="dropdown-item" href="{% url 'add_book' %}">Book Management</a></li>
             {% endif %}
-            <li><a class="dropdown-item" href="">My Profile</a></li>
             <li><a class="dropdown-item" href="{% url 'newsletter_signup' %}">Contact Us</a></li>
             <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
           {% else %}

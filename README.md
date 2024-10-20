@@ -411,9 +411,14 @@ The plan would be to consistently update the Facebook page with engaging content
 
 ### Newsletter Marketing
 
+A newsletter sign-up form has been incorporated into the website, allowing users to sign up to receive regular updates.
+
+At present a newsletter email is triggered when a new book is added to the store. 
 
 
 ## Testing
+
+
 
 ## Deployment
 

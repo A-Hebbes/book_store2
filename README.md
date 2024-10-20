@@ -79,13 +79,69 @@ The typography for The Bookstore Wexford was chosen to enhance readability and c
 
 ## User Stories
 
-### New Site Users
+## User Stories
 
-### Returning Site Users
-
+### Site Users
+ 
+- As a site user, I would like to easily navigate the site, so that I can find books I'm interested in quickly.
+- As a site user, I would like to view a list of available books, so that I can select some to purchase.
+- As a site user, I would like to search for specific books or authors, so that I can find what I'm looking for efficiently.
+- As a site user, I would like to view detailed information about a book, so that I can make an informed decision before purchasing.
+- As a site user, I would like to make a secure purchase, so that I can safely buy books online without worrying about my financial information.
+ 
 ### Site Admin
+ 
+- As a site administrator, I should be able to add new books to the inventory, so that I can keep the selection up-to-date.
+- As a site administrator, I should be able to edit book information, so that I can correct errors or update details as needed.
+- As a site administrator, I should be able to remove books from the inventory, so that I can manage the available selection effectively.
+- As a site administrator, I should be able to view and manage user accounts, so that I can assist with account-related issues.
+- As a site administrator, I should be able to process orders and update their status, so that I can ensure efficient order fulfillment.
 
 ## Wireframes
+
+# Wireframes
+
+To follow best practice, wireframes were developed for mobile and desktop sizes.
+
+I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
+
+### Mobile Wireframes
+
+<details>
+<summary>Click here to see the Mobile Wireframes</summary>
+
+Home
+  - ![screenshot](documentation/wireframes/bookstore-home-mobile-wireframe.png)
+
+Book Menu
+  - ![screenshot](documentation/wireframes/bookstore-book-menu-mobile-wireframe.png)
+
+Book Detail
+  - ![screenshot](documentation/wireframes/bookstore-book-detail-mobile-wirdeframe.png)
+
+Contact
+  - ![screenshot](documentation/wireframes/bookstore-contact-mobile-wireframe.png)
+
+</details>
+
+### Desktop Wireframes
+
+<details>
+<summary>Click here to see the Desktop Wireframes</summary>
+
+Home
+  - ![screenshot](documentation/wireframes/bookstore-home-wireframe.png)
+
+Book Menu
+  - ![screenshot](documentation/wireframes/bookstore-book-menu-wireframe.png)
+
+Book Detail
+  - ![screenshot](documentation/wireframes/bookstore-book-detail-wireframe.png)
+
+Contact
+  - ![screenshot](documentation/wireframes/bookstore-contact-wireframe.png)
+
+</details>
 
 ## Features
 

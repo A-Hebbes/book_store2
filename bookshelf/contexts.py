@@ -3,6 +3,7 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from books.models import Book
 
+
 def bookshelf_contents(request):
     bookshelf_items = []
     total = 0
@@ -25,9 +26,9 @@ def bookshelf_contents(request):
     else:
         delivery = 0
         free_delivery_delta = 0
-    
+
     grand_total = delivery + total
-    
+
     context = {
         'bookshelf_items': bookshelf_items,
         'total': total,

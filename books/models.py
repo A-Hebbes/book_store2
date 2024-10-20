@@ -1,4 +1,7 @@
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from newsletter.utils import notify_new_book
 
 # Create your models here.
 BOOK_CATEGORIES = [
@@ -23,3 +26,8 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+
+@receiver(post_save, sender=Book)
+def book_created(sender, instance, created, **kwargs):
+    if created:
+        notify_new_book(instance)

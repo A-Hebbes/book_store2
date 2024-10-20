@@ -1,9 +1,10 @@
 from django.contrib import admin
 from .models import Book
 
+
 class BookAdmin(admin.ModelAdmin):
     list_display = (
-         'title',
+        'title',
         'author',
         'isbn',
         'category',
@@ -13,5 +14,6 @@ class BookAdmin(admin.ModelAdmin):
     search_fields = ('title', 'author', 'isbn')
     list_filter = ('category',)
     prepopulated_fields = {'slug': ('title',)}
+
 
 admin.site.register(Book, BookAdmin)

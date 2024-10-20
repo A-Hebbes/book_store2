@@ -1,31 +1,39 @@
-var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
-var clientSecret = $('#id_client_secret').text().slice(1, -1);
-var stripe = Stripe(stripePublicKey);
-var elements = stripe.elements();
+/* jshint esversion: 11, jquery: true */
 
-var style = {
-        base: {
-            color: '#2c3e50',
-            fontFamily: '"Roboto", sans-serif',
-            fontSmoothing: 'antialiased',
-            fontSize: '16px',
-            '::placeholder': {
-                color: '#95a5a6'
-            }
-        },
-        invalid: {
-            color: '#e74c3c',
-            iconColor: '#e74c3c'
+// Get Stripe public key and client secret from the DOM
+const stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
+const clientSecret = $('#id_client_secret').text().slice(1, -1);
+
+// Initialise Stripe
+const stripe = Stripe(stripePublicKey);
+const elements = stripe.elements();
+
+// Style for Stripe elements
+const style = {
+    base: {
+        color: '#2c3e50',
+        fontFamily: '"Roboto", sans-serif',
+        fontSmoothing: 'antialiased',
+        fontSize: '16px',
+        '::placeholder': {
+            color: '#95a5a6'
         }
+    },
+    invalid: {
+        color: '#e74c3c',
+        iconColor: '#e74c3c'
+    }
 };
 
-var card = elements.create('card', {style: style});
+// Create and mount card element
+const card = elements.create('card', {style: style});
 card.mount('#card-element');
 
+// Handle validation errors from card element
 card.addEventListener('change', function (event) {
-    var errorDiv = document.getElementById('card-error');
+    const errorDiv = document.getElementById('card-error');
     if (event.error) {
-        var html = `
+        const html = `
             <span class="icon" role="alert">
                 <i class="fas fa-times"></i>
             </span>
@@ -37,23 +45,24 @@ card.addEventListener('change', function (event) {
     }
 });
 
-// Handles form submit
-var form = document.getElementById('payment-form');
+// Handle form submit
+const form = document.getElementById('payment-form');
 form.addEventListener('submit', function(ev) {
     ev.preventDefault();
     card.update({ 'disabled': true});
     $('#submit-button').attr('disabled', true);
     $('#payment-form').fadeToggle(100);
-    $('#loading-overlay').fadeToggle(100);  
-    var saveInfo = Boolean($('#id-save-info').attr('checked'));
-    // From using {% csrf_token %} in form
-    var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
-    var postData = {
+    $('#loading-overlay').fadeToggle(100);
+
+    const saveInfo = Boolean($('#id-save-info').attr('checked'));
+    const csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
+    const postData = {
         'csrfmiddlewaretoken': csrfToken,
         'client_secret': clientSecret,
         'save_info': saveInfo,
     };
-    var url = '/checkout/cache_checkout_data/';
+    const url = '/checkout/cache_checkout_data/';
+
     $.post(url, postData).done(function () {
         stripe.confirmCardPayment(clientSecret, {
             payment_method: {
@@ -85,8 +94,8 @@ form.addEventListener('submit', function(ev) {
             },
         }).then(function(result) {
             if (result.error) {
-                var errorDiv = document.getElementById('card-error');
-                var html = `
+                const errorDiv = document.getElementById('card-error');
+                const html = `
                     <span class="icon" role="alert">
                     <i class="fas fa-times"></i>
                     </span>
@@ -103,7 +112,7 @@ form.addEventListener('submit', function(ev) {
             }
         });
     }).fail(function () {
-        // reload the page,
+        // Reload the page if the post request fails
         location.reload();
-    })
+    });
 });

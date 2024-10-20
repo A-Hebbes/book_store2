@@ -164,12 +164,29 @@ def checkout_success(request, order_number):
                 user_profile_form.save()
     """
 
-    messages.success(request, f'Order successfully processed! \
-        Your order number is {order_number}. A confirmation \
-        email will be sent to {order.email}.')
+    #messages.success(request, f'Order successfully processed! \
+    #    Your order number is {order_number}. A confirmation \
+    #   email will be sent to {order.email}.')
 
+    # Check if the email has already been sent
+    if not order.email_sent:
     # Send the confirmation email
-    send_confirmation_email(order)
+        email_sent = send_confirmation_email(order)
+
+        if email_sent:
+            order.email_sent = True
+            order.save()
+            messages.success(request, f'Order successfully processed! \
+                Your order number is {order_number}. A confirmation \
+                email has been sent to {order.email}.')
+        else:
+            messages.warning(request, f'Order processed, but we couldn\'t send \
+                a confirmation email to {order.email}. Please contact us if you \
+                don\'t receive it shortly.')
+    else:
+        messages.info(request, f'A confirmation email for order {order_number} \
+            has already been sent to {order.email}.')
+
 
     if 'bookshelf' in request.session:
         del request.session['bookshelf']

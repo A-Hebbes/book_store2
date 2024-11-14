@@ -2,34 +2,44 @@
 {% load static %}
 
 {% block content %}
-
 <div class="container mt-5 pt-5">
     <div class="row justify-content-center">
-        <div class="col-12 col-md-8 col-lg-6">
-            <div class="card">
-                <div class="card-body">
-                    <h2 class="card-title text-center mb-4">Frequently Asked Questions</h2>
-                    {% if faqs %}
-                        <div class="accordion" id="faqAccordion">
-                            {% for faq in faqs %}
-                            <div class="accordion-item">
-                                <h3 class="accordion-header" id="heading{{ forloop.counter }}">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ forloop.counter }}" aria-expanded="false" aria-controls="collapse{{ forloop.counter }}">
-                                        {{ faq.question }}
-                                    </button>
-                                </h3>
-                                <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="heading{{ forloop.counter }}" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body">
-                                        {{ faq.answer }}
-                                    </div>
+        <div class="col-12 col-md-8">
+            <div style="background-color: rgba(253, 236, 200, 0.9);" class="rounded-3 p-4 p-md-5">
+                <h2 class="text-center mb-4 bookstore-font text-uppercase" style="color: #2c3e50; letter-spacing: 2px;">
+                    Frequently Asked Questions
+                </h2>
+                {% if faqs %}
+                    <div class="accordion" id="faqAccordion">
+                        {% for faq in faqs %}
+                        <div class="accordion-item border-black mb-3">
+                            <h3 class="accordion-header" id="heading{{ forloop.counter }}">
+                                <button class="accordion-button collapsed" 
+                                        type="button" 
+                                        data-bs-toggle="collapse" 
+                                        data-bs-target="#collapse{{ forloop.counter }}" 
+                                        aria-expanded="false" 
+                                        aria-controls="collapse{{ forloop.counter }}"
+                                        style="background-color: white; color: #2c3e50;">
+                                    {{ faq.question }}
+                                </button>
+                            </h3>
+                            <div id="collapse{{ forloop.counter }}" 
+                                 class="accordion-collapse collapse" 
+                                 aria-labelledby="heading{{ forloop.counter }}" 
+                                 data-bs-parent="#faqAccordion">
+                                <div class="accordion-body bg-white">
+                                    {{ faq.answer|linebreaks }}
                                 </div>
                             </div>
-                            {% endfor %}
                         </div>
-                    {% else %}
-                        <p class="text-center">No FAQs are available at the moment. Please check back later.</p>
-                    {% endif %}
-                </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="text-center p-4 bg-white rounded-3">
+                        <p class="mb-0" style="color: #2c3e50;">No FAQs are available at the moment. Please check back later.</p>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>

@@ -99,7 +99,6 @@ body {
     z-index: 1031;
 }
 
-
 /* Django messages container*/
 .message-container {
     position: fixed;

@@ -295,6 +295,28 @@ It also helped with milestone iterations on a weekly basis.
 
    ![screenshot](documentation/gh-issues-closed.png)
 
+### GitHub Milestones
+
+GitHub Milestones were used to group related issues into larger epics, providing a clear overview of project progress across major functional areas. Three key milestones were created:
+
+1. **Core E-commerce Functionality**
+   - Encompassed all user account, shopping basket, and checkout features
+   - Focused on essential buying and selling capabilities
+
+2. **Book Management System**
+   - Covered inventory control and admin functionalities
+   - Included book detail pages and catalogue management
+
+3. **User Interface Development**
+   - Contained all navigation and search functionality
+   - Included responsive design and user experience features
+
+Each milestone was set with a due date of 20th October 2023, aligning with the project completion timeline. Issues were assigned to these milestones based on their functional area, allowing for clear tracking of progress across major project components.
+
+![screenshot](documentation/milestones.png)
+
+The milestones helped maintain focus on delivering key functionality while providing a clear structure for tracking progress across different aspects of the project. This approach complemented the use of the GitHub Projects Kanban board and MoSCoW prioritisation, ensuring an organised development process.
+
 ### MoSCoW Prioritisation
 
 I broke down my Epics into stories before to prioritising and implementing them.

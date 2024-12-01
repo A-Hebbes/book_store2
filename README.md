@@ -452,10 +452,10 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 | bookshop | index.html | ![screenshot](documentation/validation/index.html.validator.png) | Fixed duplicate ID issue with main-nav. All validation errors resolved.|
 | checkout | checkout.html | ![screenshot](documentation/validation/checkout.html.validator.png) | Passed validation with no issues. |
 | checkout | checkout_success.html | ![screenshot](documentation/validation/checkout.success.html.validator.png) | Passed validation with no issues. |
-| contact | contact.html | ![screenshot](documentation/validation/path-to-screenshot.png) |  |
-| faq | faq.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| newsletter | signup.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| templates | 404.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| contact | contact.html | ![screenshot](documentation/validation/contact.html.validator.png.png) | Passed validation with no issues. |
+| faq | faq.html | ![screenshot](documentation/validation/faq.html.validation.png) | Passed validation with no issues. |
+| newsletter | signup.html | ![screenshot](documentation/validation/newsletter.html.validator.png) | Passed validation with no issues. |
+| templates | 404.html | ![screenshot](documentation/validation/custom.404.validator.png) | Passed validation with no issues. |
 
 
 ## Deployment

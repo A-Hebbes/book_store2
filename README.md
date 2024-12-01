@@ -440,6 +440,23 @@ At present a newsletter email is triggered when a new book is added to the store
 
 ## Testing
 
+I have used the recommended [HTML W3C Validator](https://validator.w3.org) to validate all of my HTML files.
+
+| Directory | File | Screenshot | Notes |
+| --- | --- | --- | --- |
+| books | add_book.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| books | book_detail.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| books | books.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| books | custom_clearable_file_input.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| books | edit_book.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| bookshelf | bookshelf.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| bookshop | index.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| checkout | checkout.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| checkout | checkout_success.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| contact | contact.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| faq | faq.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| newsletter | signup.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| templates | 404.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
 
 
 ## Deployment

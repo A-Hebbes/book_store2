@@ -457,6 +457,24 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 | newsletter | signup.html | ![screenshot](documentation/validation/newsletter.html.validator.png) | Passed validation with no issues. |
 | templates | 404.html | ![screenshot](documentation/validation/custom.404.validator.png) | Passed validation with no issues. |
 
+### CSS
+
+I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-validator) to validate all of my CSS files.
+
+| Directory | File | Screenshot | Notes |
+| --- | --- | --- | --- |
+| checkout | checkout.css | ![screenshot](documentation/validation/checkout.css.validator.png) | Passed validation with no issues. |
+| static | base.css | ![screenshot](documentation/validation/base.css.validator.png) | Passed validation with no issues, but 2 warnings for vendor extensions used for cross browser compatibility. |
+
+### JavaScript
+
+I have used the recommended [JShint Validator](https://jshint.com) to validate all of my JS files.
+
+| Directory | File | Screenshot | Notes |
+| --- | --- | --- | --- |
+| checkout | stripe_elements.js | ![screenshot](documentation/validation/stripe.js.validator.png) | Fixed missing semi-colon. Stripe showing as undefined variable as it is an external library. All validation issues resolved. |
+
+
 
 ## Deployment
 

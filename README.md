@@ -450,7 +450,7 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 | books | custom_clearable_file_input.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
 | books | edit_book.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
 | bookshelf | bookshelf.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| bookshop | index.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| bookshop | index.html | ![screenshot](documentation/validation/index.html.validator.png) | Fixed duplicate ID issue with main-nav. All validation errors resolved.|
 | checkout | checkout.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
 | checkout | checkout_success.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
 | contact | contact.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |

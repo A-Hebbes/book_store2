@@ -444,9 +444,9 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 
 | Directory | File | Screenshot | Notes |
 | --- | --- | --- | --- |
-| books | add_book.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| books | add_book.html | ![screenshot](documentation/validation/addbook.html.validator.png) | Passed validation with no errors |
 | books | book_detail.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| books | books.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| books | books.html | ![screenshot](documentation/validation/allbooks.html.validator.png) | Removed uneccessary text/javascript. ALl issues resolved. |
 | books | custom_clearable_file_input.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
 | books | edit_book.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
 | bookshelf | bookshelf.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |

@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Core Meta Tags -->
     {% block meta %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,6 +14,7 @@
     {% block extra_meta %}
     {% endblock %}
 
+    <!-- Core CSS -->
     {% block corecss %}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -23,27 +25,32 @@
     {% block extra_css %}
     {% endblock %}
 
+    <!-- Core JavaScript -->
     {% block corejs %}
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/e62857fc86.js" crossorigin="anonymous"></script>
-    <!-- Stripe -->
+    <!-- Stripe Payment Integration -->
     <script src="https://js.stripe.com/v3/"></script>
     {% endblock %}
 
     {% block extra_js %}
     {% endblock %}
 
+    <!-- Page Title -->
     <title>Wexford Paperback Bookshop | Quality Books at Affordable Prices {% block extra_title %}{% endblock %}</title>
-    <!-- CSRF Token -->
+    
+    <!-- CSRF Security Token -->
     <script>
         var csrftoken = '{{ csrf_token }}';
     </script>
 </head>
 
 <body>
+    <!-- Main Header Container -->
     <header class="container-fluid">
+        <!-- Mobile Logo Section -->
         <div class="d-lg-none bg-white pt-2">
             <div class="row">
                 <div class="col-12 text-center">
@@ -54,12 +61,16 @@
             </div>
         </div>
 
+        <!-- Desktop Navigation Section -->
         <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
+            <!-- Logo Section -->
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
                 <a href="{% url 'home' %}" class="nav-link bookshop-logo-link">
                     <h2 class="bookstore-font my-0"><strong>Bookstore</strong></h2>
                 </a>
             </div>
+            
+            <!-- Search Bar Section -->
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                 <form method="GET" action="{% url 'all_books' %}">
                     <div class="input-group w-100">
@@ -75,8 +86,10 @@
                 </form>
             </div>
 
+            <!-- User Account Menu -->
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                 <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+                    <!-- Menu Dropdown -->
                     <li class="list-inline-item dropdown">
                         <a class="text-dark nav-link dropdown-toggle" href="#" id="user-options" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <div class="text-center">
@@ -84,6 +97,7 @@
                                 <p class="my-0">Menu</p>
                             </div>
                         </a>
+                        <!-- User Navigation Options -->
                         <ul class="dropdown-menu" aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
@@ -102,6 +116,7 @@
                             {% endif %}
                         </ul>
                     </li>
+                    <!-- Shopping Cart Summary -->
                     <li class="list-inline-item">
                         <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-dark{% endif %} nav-link" href="{% url 'view_bookshelf' %}">
                             <div class="text-center">
@@ -120,6 +135,7 @@
             </div>
         </div>
 
+        <!-- Mobile Navigation Menu -->
         <div class="row row-bg-white">
             <nav class="navbar navbar-expand-lg navbar-dark w-100">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav, #main-nav-mobile, #main-nav-content" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -132,6 +148,7 @@
             </nav>
         </div>
 
+        <!-- Free Delivery Banner -->
         <div id="delivery-banner" class="row text-center">
             <div class="col bg-black text-white">
                 <h4 class="bookstore-font my-1">Free Delivery on Orders Over €{{ free_delivery_threshold }}</h4>
@@ -139,6 +156,7 @@
         </div>
     </header>
 
+    <!-- Toast Messages Section -->
     {% if messages %}
     <div id="message-container" class="message-container">
         {% for message in messages %}
@@ -157,21 +175,26 @@
     </div>
     {% endif %}
 
+    <!-- Page Header Block -->
     {% block page_header %}
     {% endblock %}
 
+    <!-- Main Content Area -->
     <main>
         {% block content %}
         {% endblock %}
     </main>
 
+    <!-- Footer Section -->
     {% block footer %}
     <footer class="footer bg-dark text-white py-3">
         <div class="container">
+            <!-- Footer Content -->
             <div class="row align-items-center">
                 <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
                     <span class="footer-text">The Bookstore</span>
                 </div>
+                <!-- Social Links -->
                 <div class="col-md-6 text-center text-md-end">
                     <div class="social-links">
                         <a href="https://www.facebook.com/profile.php?id=61567552192724" class="social-link text-white me-3" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
@@ -180,6 +203,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Privacy Policy Link -->
             <div class="col-12">
                 <a href="https://www.termsfeed.com/live/bf50c125-8b8d-49b2-afef-39eda313dcc5" target="_blank">Privacy Policy</a>
             </div>
@@ -187,9 +211,11 @@
     </footer>
     {% endblock %}
 
+    <!-- JavaScript Functionality -->
     {% block postloadjs %}
-    <script type="text/javascript">
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Toast Initialization
             var toastElList = [].slice.call(document.querySelectorAll('.toast'));
             var toastList = toastElList.map(function(toastEl) {
                 var toast = new bootstrap.Toast(toastEl, {
@@ -199,7 +225,7 @@
                 return toast;
             });
 
-            // Add event listeners to close buttons
+            // Toast Close Button Handlers
             document.querySelectorAll('.toast .btn-close').forEach(function(closeButton) {
                 closeButton.addEventListener('click', function() {
                     var toast = bootstrap.Toast.getInstance(this.closest('.toast'));
@@ -208,6 +234,8 @@
                     }
                 });
             });
+
+            // Back to Top Button Functionality
             var backTopButton = document.querySelector('.back-top-button');
             
             window.addEventListener('scroll', function() {
@@ -229,6 +257,7 @@
     </script>
     {% endblock %}
 
+    <!-- Back to Top Button -->
     <div class="back-top-button shadow-sm rounded-0 border border-black">
         <a class="back-top-link d-flex h-100">
             <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>

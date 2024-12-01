@@ -474,6 +474,54 @@ I have used the recommended [JShint Validator](https://jshint.com) to validate a
 | --- | --- | --- | --- |
 | checkout | stripe_elements.js | ![screenshot](documentation/validation/stripe.js.validator.png) | Fixed missing semi-colon. Stripe showing as undefined variable as it is an external library. All validation issues resolved. |
 
+### Python
+
+| Directory | File | CI URL | Screenshot | Notes |
+| --- | --- | --- | --- | --- |
+| books | admin.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/books/admin.py) | ![screenshot](documentation/validation/books.admin.py.validator.png) | |
+| books | decorators.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/books/decorators.py) | ![screenshot](documentation/validation/books.decorators.py.validator.png) | |
+| books | forms.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/books/forms.py) | ![screenshot](documentation/validation/books.forms.py.png) | |
+| books | models.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/books/models.py) | ![screenshot](documentation/validation/books.models.py.validator.png) | |
+| books | urls.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/books/urls.py) | ![screenshot](documentation/validation/books.urls.py.validator.png) | |
+| books | views.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/books/views.py) | ![screenshot](documentation/validation/books.views.py.validator.png) | |
+| books | widgets.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/books/widgets.py) | ![screenshot](documentation/validation/books.widgets.py.validator.png) | |
+| bookshelf | admin.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/bookshelf/admin.py) | ![screenshot](documentation/validation/bookshelf.admin.py.validator.png) | |
+| bookshelf | contexts.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/bookshelf/contexts.py) | ![screenshot](documentation/validation/bookshelf.contexts.py.validator.png) | |
+| bookshelf | models.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/bookshelf/models.py) | ![screenshot](documentation/validation/bookshelf.models.py.validator.png) | |
+| bookshelf | bookshelf_tools.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/bookshelf/templatetags/bookshelf_tools.py) | ![screenshot](documentation/validation/bookshelf.bookshelf_tools.py.validator.png) | |
+| bookshelf | urls.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/bookshelf/urls.py) | ![screenshot](documentation/validation/bookshelf.urls.py.validator.png) | |
+| bookshelf | views.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/bookshelf/views.py) | ![screenshot](documentation/validation/bookshelf.views.py.validator.png) | |
+| bookshop | admin.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/bookshop/admin.py) | ![screenshot](documentation/validation/bookshop.admin.py.validator.png) | |
+| bookshop | models.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/bookshop/models.py) | ![screenshot](documentation/validation/bookshop.models.py.validator.png) | |
+| bookshop | urls.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/bookshop/urls.py) | ![screenshot](documentation/validation/bookshop.urls.py.validator.png) | |
+| bookshop | views.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/bookshop/views.py) | ![screenshot](documentation/validation/bookshop.views.py.validator.png) | |
+| checkout | admin.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/checkout/admin.py) | ![screenshot](documentation/validation/checkout.admin.py.validator.png) | Added blank lines and removed whitespace. No remaining issues.|
+| checkout | forms.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/checkout/forms.py) | ![screenshot](documentation/validation/checkout.forms.py.validator.png) | Added blank lines, fixed indentation and removed whitespace. No remaining issues. |
+| checkout | models.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/checkout/models.py) | ![screenshot](documentation/validation/checkout.models.py.validator.png) | Added blank lines, reduced long lines and removed whitespace. No remaining issues.|
+| checkout | signals.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/checkout/signals.py) | ![screenshot](documentation/validation/checkout.signals.py.validator.png) | |
+| checkout | urls.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/checkout/urls.py) | ![screenshot](documentation/validation/checkout.urls.py.validator.png) | |
+| checkout | utils.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/checkout/utils.py) | ![screenshot](documentation/validation/checkout.utils.py.validator.png) | |
+| checkout | views.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/checkout/views.py) | ![screenshot](documentation/validation/checkout.views.py.validator.png) | |
+| contact | admin.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/contact/admin.py) | ![screenshot](documentation/validation/contact.admin.py.validator.png) | |
+| contact | forms.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/contact/forms.py) | ![screenshot](documentation/validation/contact.forms.py.validator.png) | |
+| contact | models.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/contact/models.py) | ![screenshot](documentation/validation/contact.models.py.validator.png) | |
+| contact | urls.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/contact/urls.py) | ![screenshot](documentation/validation/contact.urls.py.validator.png) | |
+| contact | views.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/contact/views.py) | ![screenshot](documentation/validation/contact.views.py.validator.png) | |
+| | custom_storages.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/custom_storages.py) | ![screenshot](documentation/validation/custom_storages.py.validator.png) | |
+| faq | admin.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/faq/admin.py) | ![screenshot](documentation/validation/faq.admin.py.validator.png) | |
+| faq | models.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/faq/models.py) | ![screenshot](documentation/validation/faq.models.py.validator.png) | |
+| faq | urls.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/faq/urls.py) | ![screenshot](documentation/validation/faq.urls.py.validator.png) | |
+| faq | views.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/faq/views.py) | ![screenshot](documentation/validation/faq.views.py.validator.png) | |
+| | manage.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/manage.py) | ![screenshot](documentation/validation/manage.py.validator.png) | |
+| my_store | settings.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/my_store/settings.py) | ![screenshot](documentation/validation/my_store.settings.py.validator.png) | |
+| my_store | urls.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/my_store/urls.py) | ![screenshot](documentation/validation/my_store.urls.py.validator.png) | |
+| my_store | views.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/my_store/views.py) | ![screenshot](documentation/validation/my_store.views.py.validator.png) | |
+| newsletter | admin.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/newsletter/admin.py) | ![screenshot](documentation/validation/newsletter.admin.py.validator.png) | |
+| newsletter | forms.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/newsletter/forms.py) | ![screenshot](documentation/validation/newsletter.forms.py.validator.png) | |
+| newsletter | models.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/newsletter/models.py) | ![screenshot](documentation/validation/newsletter.models.py.validator.png) | |
+| newsletter | urls.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/newsletter/urls.py) | ![screenshot](documentation/validation/newsletter.urls.py.validator.png) | |
+| newsletter | utils.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/newsletter/utils.py) | ![screenshot](documentation/validation/newsletter.utils.py.validator.png) | |
+| newsletter | views.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/A-Hebbes/book_store2/main/newsletter/views.py) | ![screenshot](documentation/validation/newsletter.views.py.validator.png) | |
 
 
 ## Deployment

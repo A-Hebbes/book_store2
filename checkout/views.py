@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import (
+    render, redirect, reverse, get_object_or_404, HttpResponse)
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
@@ -12,21 +13,30 @@ from .utils import send_confirmation_email
 import stripe
 import json
 
+
 @require_POST
 def cache_checkout_data(request):
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
-        stripe.PaymentIntent.modify(pid, metadata={
-            'bookshelf': json.dumps(request.session.get('bookshelf', {})),
-            'save_info': request.POST.get('save_info'),
-            'username': request.user.username if request.user.is_authenticated else 'AnonymousUser',
-        })
+        stripe.PaymentIntent.modify(
+            pid,
+            metadata={
+                'bookshelf': json.dumps(request.session.get('bookshelf', {})),
+                'save_info': request.POST.get('save_info'),
+                'username': request.user.username if request.user.is_authenticated  # noqa: E501
+                else 'AnonymousUser',
+            }
+        )
         return HttpResponse(status=200)
     except Exception as e:
-        messages.error(request, 'Sorry, your payment cannot be \
-            processed right now. Please try again later.')
+        messages.error(
+            request,
+            'Sorry, your payment cannot be processed right now. '
+            'Please try again later.'
+        )
         return HttpResponse(content=str(e), status=400)
+
 
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
@@ -65,23 +75,32 @@ def checkout(request):
                         )
                         order_line_item.save()
                 except Book.DoesNotExist:
-                    messages.error(request, (
+                    messages.error(
+                        request,
                         "One of the books in your bookshelf wasn't found. "
-                        "Please call us for assistance!")
+                        "Please call us for assistance!"
                     )
                     order.delete()
                     return redirect(reverse('view_bookshelf'))
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(
+                reverse('checkout_success', args=[order.order_number])
+            )
         else:
-            messages.error(request, 'There was an error with your form. \
-                Please double check your information.')
+            messages.error(
+                request,
+                'There was an error with your form. '
+                'Please double check your information.'
+            )
             return redirect(reverse('checkout'))
     else:
         bookshelf = request.session.get('bookshelf', {})
         if not bookshelf:
-            messages.error(request, "There's nothing in your bookshelf at the moment")
+            messages.error(
+                request,
+                "There's nothing in your bookshelf at the moment"
+            )
             return redirect(reverse('books'))
 
         current_bookshelf = bookshelf_contents(request)
@@ -94,35 +113,20 @@ def checkout(request):
                 currency=settings.STRIPE_CURRENCY,
             )
         except stripe.error.StripeError as e:
-            messages.error(request, f"An error occurred while processing your payment: {str(e)}")
+            messages.error(
+                request,
+                f"An error occurred while processing your payment: {str(e)}"
+            )
             return redirect(reverse('view_bookshelf'))
 
-    # User profile form handling (commented out for future implementation)
-    """
-    if request.user.is_authenticated:
-        try:
-            profile = UserProfile.objects.get(user=request.user)
-            order_form = OrderForm(initial={
-                'full_name': profile.user.get_full_name(),
-                'email': profile.user.email,
-                'phone_number': profile.default_phone_number,
-                'country': profile.default_country,
-                'postal_code': profile.default_postal_code,
-                'city': profile.default_city,
-                'address_line1': profile.default_address_line1,
-                'address_line2': profile.default_address_line2,
-                'county': profile.default_county,
-            })
-        except UserProfile.DoesNotExist:
-            order_form = OrderForm()
-    else:
-        order_form = OrderForm()
-    """
     order_form = OrderForm()
 
     if not stripe_public_key:
-        messages.warning(request, 'Stripe public key is missing. \
-            Did you forget to set it in your environment?')
+        messages.warning(
+            request,
+            'Stripe public key is missing. '
+            'Did you forget to set it in your environment?'
+        )
 
     template = 'checkout/checkout.html'
     context = {
@@ -133,60 +137,37 @@ def checkout(request):
 
     return render(request, template, context)
 
+
 def checkout_success(request, order_number):
-    """
-    Handle successful checkouts
-    """
+    """Handle successful checkouts"""
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 
-    # User profile handling (commented out for future implementation)
-    """
-    if request.user.is_authenticated:
-        profile = UserProfile.objects.get(user=request.user)
-        # Attach the user's profile to the order
-        order.user_profile = profile
-        order.save()
-
-        # Save the user's info
-        if save_info:
-            profile_data = {
-                'default_phone_number': order.phone_number,
-                'default_country': order.country,
-                'default_postal_code': order.postal_code,
-                'default_city': order.city,
-                'default_address_line1': order.address_line1,
-                'default_address_line2': order.address_line2,
-                'default_county': order.county,
-            }
-            user_profile_form = UserProfileForm(profile_data, instance=profile)
-            if user_profile_form.is_valid():
-                user_profile_form.save()
-    """
-
-    #messages.success(request, f'Order successfully processed! \
-    #    Your order number is {order_number}. A confirmation \
-    #   email will be sent to {order.email}.')
-
-    # Check if the email has already been sent
     if not order.email_sent:
-    # Send the confirmation email
         email_sent = send_confirmation_email(order)
 
         if email_sent:
             order.email_sent = True
             order.save()
-            messages.success(request, f'Order successfully processed! \
-                Your order number is {order_number}. A confirmation \
-                email has been sent to {order.email}.')
+            messages.success(
+                request,
+                f'Order successfully processed! Your order number is '
+                f'{order_number}. A confirmation email has been sent to '
+                f'{order.email}.'
+            )
         else:
-            messages.warning(request, f'Order processed, but we couldn\'t send \
-                a confirmation email to {order.email}. Please contact us if you \
-                don\'t receive it shortly.')
+            messages.warning(
+                request,
+                f'Order processed, but we couldn\'t send a confirmation email '
+                f'to {order.email}. Please contact us if you don\'t receive '
+                f'it shortly.'
+            )
     else:
-        messages.info(request, f'A confirmation email for order {order_number} \
-            has already been sent to {order.email}.')
-
+        messages.info(
+            request,
+            f'A confirmation email for order {order_number} has already been '
+            f'sent to {order.email}.'
+        )
 
     if 'bookshelf' in request.session:
         del request.session['bookshelf']

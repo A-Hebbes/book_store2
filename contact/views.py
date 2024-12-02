@@ -3,7 +3,6 @@ from django.urls import reverse
 from django.contrib import messages
 from .forms import ContactForm
 
-# Create your views here.
 
 def contact_view(request):
     if request.method == 'POST':
@@ -13,8 +12,11 @@ def contact_view(request):
             messages.success(request, 'Your message has been sent. Thank you')
             return redirect(reverse('all_books'))
         else:
-            messages.error(request, 'Something went wrong. Please check the form and resubmit.')
+            messages.error(
+                request,
+                'Something went wrong. Please check the form and resubmit.'
+            )
     else:
         form = ContactForm()
-    
+
     return render(request, 'contact/contact.html', {'form': form})

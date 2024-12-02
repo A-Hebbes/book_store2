@@ -9,20 +9,17 @@ from books.models import Book
 
 def send_confirmation_email(order):
     """Send the user a confirmation email"""
-    try:    
+    try:
         cust_email = order.email
-       
-        
+
         subject = render_to_string(
             'checkout/confirmation_emails/confirmation_email_subject.txt',
             {'order': order})
-       
-        
+
         body = render_to_string(
             'checkout/confirmation_emails/confirmation_email_body.txt',
             {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
-        
-        
+
         send_mail(
             subject,
             body,
@@ -30,7 +27,6 @@ def send_confirmation_email(order):
             [cust_email]
         )
 
-        
         return True
     except Exception:
         return False

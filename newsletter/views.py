@@ -3,7 +3,9 @@ from django.urls import reverse
 from django.contrib import messages
 from .forms import NewsletterForm
 
+
 def newsletter_signup(request):
+    """Handle newsletter signup form submission."""
     if request.method == 'POST':
         form = NewsletterForm(request.POST)
         if form.is_valid():
@@ -11,8 +13,11 @@ def newsletter_signup(request):
             messages.success(request, 'You have successfully subscribed')
             return redirect(reverse('all_books'))
         else:
-            messages.error(request, 'Something went wrong. Please check the form and resubmit.')
+            messages.error(
+                request,
+                'Something went wrong. Please check the form and resubmit.'
+            )
     else:
         form = NewsletterForm()
-    
+
     return render(request, 'newsletter/signup.html', {'form': form})

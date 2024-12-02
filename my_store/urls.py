@@ -31,5 +31,5 @@ urlpatterns = [
     path('newsletter/', include('newsletter.urls')),
     path('contact/', include('contact.urls')),
     path('faq/', include('faq.urls')),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 handler404 = 'my_store.views.handler404'

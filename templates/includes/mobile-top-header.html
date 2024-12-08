@@ -1,57 +1,130 @@
+<!-- mobile-top-header.html -->
 <div class="collapse navbar-collapse" id="main-nav-mobile">
   <ul class="navbar-nav d-lg-none">
-    <li class="nav-item">
-      <a class="nav-link" href="#" id="mobile-search" data-bs-toggle="dropdown" aria-expanded="false">
-        <div class="text-center">
-          <div><i class="fas fa-search fa-lg"></i></div>
-          <p class="my-0 text-dark">Search</p>
-        </div>
-      </a>
-      <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="mobile-search">
-        <form class="form" method="GET" action="{% url 'all_books' %}">
-          <div class="input-group w-100">
-            <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search for books">
-            <button class="btn btn-outline-secondary" type="submit">
-              <i class="fas fa-search"></i>
-            </button>
+      <!-- Search -->
+      <li class="nav-item">
+          <a class="nav-link" href="#" id="mobile-search" data-bs-toggle="dropdown" aria-expanded="false">
+              <div class="text-center">
+                  <div><i class="fas fa-search fa-lg"></i></div>
+                  <p class="my-0 text-dark">Search</p>
+              </div>
+          </a>
+          <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="mobile-search">
+              <form class="form" method="GET" action="{% url 'all_books' %}">
+                  <div class="input-group w-100">
+                      <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search for books">
+                      <button class="btn btn-outline-secondary" type="submit">
+                          <i class="fas fa-search"></i>
+                      </button>
+                  </div>
+              </form>
           </div>
-        </form>
-      </div>
-    </li>
-    <li class="nav-item dropdown">
-      <a class="nav-link" href="#" id="user-options-mobile" data-bs-toggle="dropdown" aria-expanded="false">
-        <div class="text-center">
-          <div><i class="fas fa-user fa-lg"></i></div>
-          <p class="my-0 text-dark">My Account</p>
-        </div>
-      </a>
-      <ul class="dropdown-menu" aria-labelledby="user-options-mobile">
-        {% if request.user.is_authenticated %}
-          {% if request.user.is_superuser %}
-            <li><a class="dropdown-item" href="{% url 'add_book' %}">Book Management</a></li>
-          {% endif %}
-          <li><a class="dropdown-item" href="{% url 'contact' %}">Contact Us</a></li>
-          <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
-        {% else %}
-          <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
-          <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
-          <li><a class="dropdown-item" href="{% url 'contact' %}">Contact Us</a></li>
-        {% endif %}
-      </ul>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link {% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %}" href="{% url 'view_bookshelf' %}">
-        <div class="text-center">
-          <div><i class="fas fa-book fa-lg"></i></div>
-          <p class="my-0">
-            {% if grand_total %}
-              €{{ grand_total|floatformat:2 }}
-            {% else %}
-              €0.00
-            {% endif %}
-          </p>
-        </div>
-      </a>
-    </li>
+      </li>
+
+      <!-- All Books -->
+      <li class="nav-item dropdown">
+          <a class="nav-link text-dark" href="#" id="all-books-link-mobile" data-bs-toggle="dropdown" aria-expanded="false">
+              <div class="text-center">
+                  <div><i class="fas fa-book-open fa-lg"></i></div>
+                  <p class="my-0">All Books</p>
+              </div>
+          </a>
+          <div class="dropdown-menu border-0" aria-labelledby="all-books-link-mobile">
+              <a href="{% url 'all_books' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+              <a href="{% url 'all_books' %}?sort=title&direction=asc" class="dropdown-item">By Title</a>
+              <a href="{% url 'all_books' %}?sort=author&direction=asc" class="dropdown-item">By Author</a>
+              <a href="{% url 'all_books' %}" class="dropdown-item">All Books</a>
+          </div>
+      </li>
+
+      <!-- Fiction -->
+      <li class="nav-item dropdown">
+          <a class="nav-link text-dark" href="#" id="fiction-link-mobile" data-bs-toggle="dropdown" aria-expanded="false">
+              <div class="text-center">
+                  <div><i class="fas fa-book fa-lg"></i></div>
+                  <p class="my-0">Fiction</p>
+              </div>
+          </a>
+          <div class="dropdown-menu border-0" aria-labelledby="fiction-link-mobile">
+              <a href="{% url 'all_books' %}?category=classics" class="dropdown-item">Classics</a>
+              <a href="{% url 'all_books' %}?category=historical" class="dropdown-item">Historical</a>
+              <a href="{% url 'all_books' %}?category=mystery_thriller" class="dropdown-item">Mystery &amp; Thriller</a>
+              <a href="{% url 'all_books' %}?category=scifi_fantasy" class="dropdown-item">Science Fiction &amp; Fantasy</a>
+              <a href="{% url 'all_books' %}?category=classics,historical,mystery_thriller,scifi_fantasy" class="dropdown-item">All Fiction</a>
+          </div>
+      </li>
+
+      <!-- Non-Fiction -->
+      <li class="nav-item dropdown">
+          <a class="nav-link text-dark" href="#" id="non-fiction-link-mobile" data-bs-toggle="dropdown" aria-expanded="false">
+              <div class="text-center">
+                  <div><i class="fas fa-glasses fa-lg"></i></div>
+                  <p class="my-0">Non-Fiction</p>
+              </div>
+          </a>
+          <div class="dropdown-menu border-0" aria-labelledby="non-fiction-link-mobile">
+              <a href="{% url 'all_books' %}?category=biography" class="dropdown-item">Biography &amp; Memoir</a>
+              <a href="{% url 'all_books' %}?category=other" class="dropdown-item">Other Non-Fiction</a>
+              <a href="{% url 'all_books' %}?category=biography,other" class="dropdown-item">All Non-Fiction</a>
+          </div>
+      </li>
+
+      <!-- Special Categories -->
+      <li class="nav-item dropdown">
+          <a class="nav-link text-dark" href="#" id="specials-link-mobile" data-bs-toggle="dropdown" aria-expanded="false">
+              <div class="text-center">
+                  <div><i class="fas fa-star fa-lg"></i></div>
+                  <p class="my-0">Special Categories</p>
+              </div>
+          </a>
+          <div class="dropdown-menu border-0" aria-labelledby="specials-link-mobile">
+              <a href="{% url 'all_books' %}?price_category=premium" class="dropdown-item">Premium Books</a>
+              <a href="{% url 'all_books' %}?price_category=budget" class="dropdown-item">Budget Friendly</a>
+              <a href="{% url 'all_books' %}" class="dropdown-item">All Categories</a>
+          </div>
+      </li>
+
+      <!-- My Account -->
+      <li class="nav-item dropdown">
+          <a class="nav-link text-dark" href="#" id="user-options-mobile" data-bs-toggle="dropdown" aria-expanded="false">
+              <div class="text-center">
+                  <div><i class="fas fa-user fa-lg"></i></div>
+                  <p class="my-0">My Account</p>
+              </div>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="user-options-mobile">
+              {% if request.user.is_authenticated %}
+                  {% if request.user.is_superuser %}
+                      <li><a class="dropdown-item" href="{% url 'add_book' %}">Book Management</a></li>
+                  {% endif %}
+                  <li><a class="dropdown-item" href="{% url 'newsletter_signup' %}">Newsletter</a></li>
+                  <li><a class="dropdown-item" href="{% url 'faq_list' %}">FAQ</a></li>
+                  <li><a class="dropdown-item" href="{% url 'contact' %}">Contact Us</a></li>
+                  <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+              {% else %}
+                  <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
+                  <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
+                  <li><a class="dropdown-item" href="{% url 'newsletter_signup' %}">Newsletter</a></li>
+                  <li><a class="dropdown-item" href="{% url 'faq_list' %}">FAQ</a></li>
+                  <li><a class="dropdown-item" href="{% url 'contact' %}">Contact Us</a></li>
+              {% endif %}
+          </ul>
+      </li>
+
+      <!-- Shopping Cart -->
+      <li class="nav-item">
+          <a class="nav-link {% if grand_total %}text-primary font-weight-bold{% else %}text-dark{% endif %}" href="{% url 'view_bookshelf' %}">
+              <div class="text-center">
+                  <div><i class="fas fa-book fa-lg"></i></div>
+                  <p class="my-0">
+                      {% if grand_total %}
+                          €{{ grand_total|floatformat:2 }}
+                      {% else %}
+                          €0.00
+                      {% endif %}
+                  </p>
+              </div>
+          </a>
+      </li>
   </ul>
 </div>

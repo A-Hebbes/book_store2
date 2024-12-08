@@ -19,9 +19,84 @@
         <div class="row">
             <div class="col">
                 {% if bookshelf_items %}
-                    <div class="table-responsive rounded">
+                    <!-- Mobile View (Card Layout) -->
+                    <div class="d-block d-md-none">
+                        {% for item in bookshelf_items %}
+                            <div class="card mb-3" data-book_id="{{ item.book.book_id }}">
+                                <div class="row g-0">
+                                    <!-- Book Image -->
+                                    <div class="col-4">
+                                        {% if item.book.image_path %}
+                                            <img class="img-fluid rounded-start h-100 object-fit-cover" 
+                                                 src="{{ item.book.image_path.url }}" 
+                                                 alt="{{ item.book.title }}">
+                                        {% else %}
+                                            <img class="img-fluid rounded-start h-100 object-fit-cover" 
+                                                 src="{{ MEDIA_URL }}default-book.jpg" 
+                                                 alt="{{ item.book.title }}">
+                                        {% endif %}
+                                    </div>
+                                    <!-- Book Details -->
+                                    <div class="col-8">
+                                        <div class="card-body py-2">
+                                            <h5 class="card-title mb-1">{{ item.book.title }}</h5>
+                                            <p class="card-text mb-1 small text-muted">ISBN: {{ item.book.isbn }}</p>
+                                            <p class="card-text mb-2">€{{ item.book.price }}</p>
+                                            
+                                            <!-- Quantity Controls -->
+                                            <form class="form update-form mb-2" 
+                                                  method="POST" 
+                                                  action="{% url 'adjust_bookshelf' item.book.book_id %}">
+                                                {% csrf_token %}
+                                                <div class="form-group">
+                                                    <div class="input-group input-group-sm" style="max-width: 120px;">
+                                                        <div class="input-group-prepend">
+                                                            <button class="decrement-qty btn btn-sm btn-black rounded-0" 
+                                                                    data-item_id="{{ item.book.book_id }}" 
+                                                                    id="decrement-qty_{{ item.book.book_id }}">
+                                                                <i class="fas fa-minus fa-sm"></i>
+                                                            </button>
+                                                        </div>
+                                                        <input class="form-control form-control-sm qty_input" 
+                                                               type="number"
+                                                               name="quantity" 
+                                                               value="{{ item.quantity }}" 
+                                                               min="1" 
+                                                               max="9"
+                                                               data-item_id="{{ item.book.book_id }}"
+                                                               id="id_qty_{{ item.book.book_id }}">
+                                                        <div class="input-group-append">
+                                                            <button class="increment-qty btn btn-sm btn-black rounded-0"
+                                                                    data-item_id="{{ item.book.book_id }}" 
+                                                                    id="increment-qty_{{ item.book.book_id }}">
+                                                                <i class="fas fa-plus fa-sm"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            
+                                            <!-- Action Buttons -->
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <a class="update-link text-info" 
+                                                   data-book_id="{{ item.book.book_id }}">
+                                                    <small>Update</small>
+                                                </a>
+                                                <a class="remove-book text-danger" 
+                                                   id="remove_{{ item.book.book_id }}">
+                                                    <small>Remove</small>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Desktop View (Table Layout) -->
+                    <div class="table-responsive rounded d-none d-md-block">
                         <table class="table table-sm table-borderless">
-                            <!-- Table Header -->
                             <thead class="text-black">
                                 <tr>
                                     <th scope="col">Book Info</th>
@@ -33,10 +108,8 @@
                                 </tr>
                             </thead>
 
-                            <!-- Book Items -->
                             {% for item in bookshelf_items %}
                                 <tr data-book_id="{{ item.book.book_id }}">
-                                    <!-- Book Image -->
                                     <td class="p-3 w-25">
                                         {% if item.book.image_path %}
                                             <img class="img-fluid rounded" 
@@ -48,42 +121,27 @@
                                                  alt="{{ item.book.title }}">
                                         {% endif %}
                                     </td>
-
-                                    <!-- Book Details -->
                                     <td class="py-3">
-                                        <p class="my-0">
-                                            <strong>{{ item.book.title }}</strong>
-                                        </p>
-                                        <p class="my-0 small text-muted">
-                                            ISBN: {{ item.book.isbn }}
-                                        </p>
+                                        <p class="my-0"><strong>{{ item.book.title }}</strong></p>
+                                        <p class="my-0 small text-muted">ISBN: {{ item.book.isbn }}</p>
                                     </td>
-
-                                    <!-- Price -->
                                     <td class="py-3">
                                         <p class="my-0">€{{ item.book.price }}</p>
                                     </td>
-
-                                    <!-- Quantity Controls -->
                                     <td class="py-3 w-25">
                                         <form class="form update-form" 
                                               method="POST" 
                                               action="{% url 'adjust_bookshelf' item.book.book_id %}">
                                             {% csrf_token %}
                                             <div class="form-group">
-                                                <div class="input-group">
-                                                    <!-- Decrement Button -->
+                                                <div class="input-group input-group-sm" style="max-width: 120px;">
                                                     <div class="input-group-prepend">
                                                         <button class="decrement-qty btn btn-sm btn-black rounded-0" 
                                                                 data-item_id="{{ item.book.book_id }}" 
                                                                 id="decrement-qty_{{ item.book.book_id }}">
-                                                            <span>
-                                                                <i class="fas fa-minus fa-sm"></i>
-                                                            </span>
+                                                            <i class="fas fa-minus fa-sm"></i>
                                                         </button>
                                                     </div>
-
-                                                    <!-- Quantity Input -->
                                                     <input class="form-control form-control-sm qty_input" 
                                                            type="number"
                                                            name="quantity" 
@@ -92,30 +150,20 @@
                                                            max="9"
                                                            data-item_id="{{ item.book.book_id }}"
                                                            id="id_qty_{{ item.book.book_id }}">
-
-                                                    <!-- Increment Button -->
                                                     <div class="input-group-append">
                                                         <button class="increment-qty btn btn-sm btn-black rounded-0"
                                                                 data-item_id="{{ item.book.book_id }}" 
                                                                 id="increment-qty_{{ item.book.book_id }}">
-                                                            <span>
-                                                                <i class="fas fa-plus fa-sm"></i>
-                                                            </span>
+                                                            <i class="fas fa-plus fa-sm"></i>
                                                         </button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </form>
                                     </td>
-
-                                    <!-- Subtotal -->
                                     <td class="py-3">
-                                        <p class="my-0 item-subtotal">
-                                            €{{ item.book.price | floatformat:2 }}
-                                        </p>
+                                        <p class="my-0 item-subtotal">€{{ item.book.price | floatformat:2 }}</p>
                                     </td>
-
-                                    <!-- Action Buttons -->
                                     <td class="py-3">
                                         <a class="update-link text-info" 
                                            data-book_id="{{ item.book.book_id }}">
@@ -128,50 +176,54 @@
                                     </td>
                                 </tr>
                             {% endfor %}
-
-                            <!-- Order Summary -->
-                            <tr>
-                                <td colspan="5" class="pt-5 text-right">
-                                    <h6>
-                                        <strong>Bookshelf Total: €<span id="bookshelf-total">{{ total|floatformat:2 }}</span></strong>
-                                    </h6>
-                                    <h6>Delivery: €{{ delivery|floatformat:2 }}</h6>
-                                    <h4 class="mt-4">
-                                        <strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong>
-                                    </h4>
-                                    {% if free_delivery_delta > 0 %}
-                                        <p class="mb-1 text-danger">
-                                            You could get your books delivered for free by spending just 
-                                            <strong>€{{ free_delivery_delta }}</strong> more.
-                                        </p>
-                                    {% endif %}
-                                </td>
-                            </tr>
-
-                            <!-- Action Buttons -->
-                            <tr>
-                                <td colspan="5" class="text-right">
-                                    <a href="{% url 'all_books' %}" 
-                                       class="btn btn-outline-black rounded-0 btn-lg">
-                                        <span class="icon">
-                                            <i class="fas fa-chevron-left"></i>
-                                        </span>
-                                        <span class="text-uppercase">Keep Browsing</span>
-                                    </a>
-                                    <a href="{% url 'checkout' %}" 
-                                       class="btn checkout-button rounded-0 btn-lg">
-                                        <span class="text-uppercase">Secure Checkout</span>
-                                        <span class="icon">
-                                            <i class="fas fa-lock"></i>
-                                        </span>
-                                    </a>
-                                </td>
-                            </tr>
                         </table>
+                    </div>
+
+                    <!-- Order Summary -->
+                    <div class="row">
+                        <div class="col-12 col-md-6 offset-md-6">
+                            <div class="p-3 bg-light rounded">
+                                <h6 class="mb-2">
+                                    <strong>Bookshelf Total: €<span id="bookshelf-total">{{ total|floatformat:2 }}</span></strong>
+                                </h6>
+                                <h6 class="mb-2">Delivery: €{{ delivery|floatformat:2 }}</h6>
+                                <h4 class="mb-3">
+                                    <strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong>
+                                </h4>
+                                {% if free_delivery_delta > 0 %}
+                                    <p class="mb-0 text-danger">
+                                        You could get your books delivered for free by spending just 
+                                        <strong>€{{ free_delivery_delta }}</strong> more.
+                                    </p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <div class="d-flex flex-column flex-md-row justify-content-end gap-2 book-detail-container">
+                                <a href="{% url 'all_books' %}" 
+                                   class="btn btn-outline-black rounded-0 mb-2 mb-md-0">
+                                    <span class="icon">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="text-uppercase">Keep Browsing</span>
+                                </a>
+                                <a href="{% url 'checkout' %}" 
+                                   class="btn checkout-button rounded-0">
+                                    <span class="text-uppercase">Secure Checkout</span>
+                                    <span class="icon">
+                                        <i class="fas fa-lock"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 {% else %}
                     <!-- Empty Bookshelf Message -->
-                    <div class="book-detail-container">
+                    <div class="book-detail-container text-center py-5">
                         <p class="lead mb-5">Your bookshelf is empty.</p>
                         <a href="{% url 'all_books' %}" 
                            class="btn browse-books-button">
@@ -195,7 +247,7 @@
         // Update quantity on click
         $('.update-link').click(function(e) {
             e.preventDefault();
-            var form = $(this).closest('tr').find('.update-form');
+            var form = $(this).closest('tr, .card').find('.update-form');
             form.submit();
         });
 

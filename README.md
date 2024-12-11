@@ -597,13 +597,70 @@ Defensive programming was manually tested with the below user acceptance testing
 
 ## User Story Testing
 
+# User Story Testing
+
+Testing the user stories has been completed to ensure all acceptance criteria and user needs have been met. The results are documented below, matched with screenshots from the implemented features.
+
+## Site Users
+
+| User Story | Expected Outcome | Actual Outcome | Screenshot |
+| --- | --- | --- | --- |
+| As a site user, I would like to easily navigate the site | Users should be able to quickly find and access different sections of the site using the navigation menu | Navigation bar is present on all pages and provides easy access to all main sections | ![screenshot](documentation/navbar.png) |
+| As a site user, I would like to view a list of available books | Users should see a catalogue of all available books with basic information | Book catalogue displays all books with images, titles, authors, and prices | ![screenshot](documentation/products.png) |
+| As a site user, I would like to search for specific books or authors | Users should be able to use search functionality to find specific items | Search function works effectively, filtering books by title or author | ![screenshot](documentation/defensive/filtering.png) |
+| As a site user, I would like to view detailed information about a book | Users should be able to access comprehensive details about any book | Book detail pages show full information including description, price, and images | ![screenshot](documentation/book-details.png) |
+| As a site user, I would like to make a secure purchase | Users should be able to safely complete purchases with secured payment processing | Stripe integration provides secure payment processing with SSL encryption | ![screenshot](documentation/defensive/stripe-payment.png) |
+
+## Site Admin
+
+| User Story | Expected Outcome | Actual Outcome | Screenshot |
+| --- | --- | --- | --- |
+| As a site administrator, I should be able to add new books to the inventory | Admins should be able to add new books with all relevant details | Add Book function allows creation of new products with all necessary fields | ![screenshot](documentation/defensive/create-product.png) |
+| As a site administrator, I should be able to edit book information | Admins should be able to update existing book details | Edit function allows modification of all product details | ![screenshot](documentation/defensive/update-product.png) |
+| As a site administrator, I should be able to remove books from the inventory | Admins should be able to delete books from the catalog | Delete function removes products with confirmation prompt | ![screenshot](documentation/defensive/delete-product.png) |
+| As a site administrator, I should be able to view and manage user accounts | Admins should have access to user account management | Admin panel provides full user account management capabilities | ![screenshot](documentation/admin-user-accounts.png) |
+| As a site administrator, I should be able to process orders and update their status | Admins should be able to track and manage all orders | Order management system allows viewing and updating of all orders | ![screenshot](documentation/admin-order.png) |
+
+## Additional Features
+
+| Feature | Expected Outcome | Actual Outcome | Screenshot |
+| --- | --- | --- | --- |
+| Newsletter Signup | Users should be able to subscribe to the store's newsletter | Newsletter signup form works correctly and adds users to mailing list | ![screenshot](documentation/defensive/newsletter.png) |
+| Shopping Cart Management | Users should be able to view and modify their cart contents | Cart system allows viewing, updating quantities, and removing items | ![screenshot](documentation/shopping-basket.png) |
+| Order Confirmation | Users should receive confirmation of their orders | Confirmation emails are sent and order confirmation page displays | ![screenshot](documentation/defensive/order-confirmation.png) |
+| Responsive Design | Site should work well on all device sizes | Design adapts smoothly to different screen sizes | ![screenshot](documentation/mockup.png) |
+| Error Handling | Users should see appropriate error messages | Custom 404 page displays for invalid URLs | ![screenshot](documentation/defensive/404.png) |
+
+All user stories have been successfully implemented and tested, with the features meeting or exceeding the initial requirements. The testing process has confirmed that both site users and administrators can effectively accomplish their intended tasks within the system.
+
 ## Bugs
 
 ### Fixed Bugs
 
+While I didn't formally track bugs during development using GitHub Issues, here are some notable bugs that were encountered and fixed during the development process:
+
+1. Stripe Payment Intent Bug
+    - **Issue**: When testing the Stripe payment system, the payment intent was not being created properly, causing the checkout to fail.
+    - **Fix**: Added proper error handling in the payment intent creation process and ensured the Stripe public key was correctly configured in the environment variables. Added proper error handling for the order creation process and ensured the bookshelf was properly cleared after successful checkout.
+
+2. Shopping Cart Quantity Update
+    - **Issue**: When updating quantities in the shopping cart, the total price wasn't updating dynamically.
+    - **Fix**: Added JavaScript event listeners to detect quantity changes and update the total price calculation in real-time.
+
+3. Book Image Upload
+    - **Issue**: When adding new books, uploaded images weren't being saved to AWS S3 correctly.
+    - **Fix**: Corrected the AWS bucket configuration and updated the media file handling in settings.py.
+
+
 ### Unfixed Bugs
 
+
+
 ### Known Issues
+
+| Issue | Description |
+| --- | --- |
+| Bootstrap Button Styling | The 'View Details' buttons in the book catalogue retain Bootstrap's default blue colour scheme, rather than matching the site's custom colour palette. This is due to Bootstrap's default classes overriding custom styling attempts. While functional, this creates a minor visual inconsistency with the site's overall aesthetic. |
 
 
 ## Deployment

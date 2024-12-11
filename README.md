@@ -217,11 +217,10 @@ Contact
 
 - Customer reviews and ratings for books
 - Wishlist functionality for registered users
-- Integration with a blog for book reviews and literary discussions
-- Advanced search filters (e.g., by genre, publication date)
-- Newsletter subscription for updates on new releases and promotions
-
-## Tools & Technologies Used
+- Advanced search filters (e.g., user rating, publication date)
+- Enhanced form validation:
+  - Restrict phone number and postal code fields to accept only appropriate formats
+  - Ensure book prices can only be set as positive numbers
 
 ## Tools & Technologies Used
 
@@ -654,6 +653,7 @@ While I didn't formally track bugs during development using GitHub Issues, here 
 
 ### Unfixed Bugs
 
+- No known bugs remaining
 
 
 ### Known Issues

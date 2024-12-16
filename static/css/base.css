@@ -4,7 +4,7 @@ html {
 }
 
 body {
-    background: url('/media/Library-200.jpg') no-repeat center center fixed; 
+    background: url('/media/Library-200.webp') no-repeat center center fixed; 
     background-size: cover;
     height: calc(100vh - 160px); 
     color: #333; 

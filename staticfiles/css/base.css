@@ -149,6 +149,13 @@ main {
     transform: translateY(-2px);
 }
 
+.card-img-top {
+    width: 100%;
+    height: 25rem;
+    object-fit: cover;
+    aspect-ratio: 2/3;
+}
+
 /* Utility classes */
 .text-black {
     color: #000 !important;
@@ -390,6 +397,10 @@ main {
     .container {
         max-width: 80%;
     }
+
+    .card-img-top {
+        height: 28rem;
+    }
 }
 
 @media (min-width: 992px) {
@@ -427,6 +438,10 @@ main {
     
     .table img {
         max-width: 50px;
+    }
+
+    .card-img-top {
+        height: 20rem;
     }
 }
 

@@ -79,7 +79,6 @@ The typography for The Bookstore Wexford was chosen to enhance readability and c
 
 ## User Stories
 
-## User Stories
 
 ### Site Users
  
@@ -373,8 +372,6 @@ The following keyword types were used:
    - Online book ordering Wexford
    - Discover new authors Wexford
    - Literary community Wexford
-
-### Sitemap
 
 ### Sitemap
 
@@ -1032,6 +1029,35 @@ There are no remaining major differences between the local version when compared
 
 ### Content
 
+| Source | Notes |
+| --- | --- |
+| [Markdown Builder](https://markdown.2bn.dev) | Help generating Markdown files |
+| [Chris Beams](https://chris.beams.io/posts/git-commit) | "How to Write a Git Commit Message" |
+| [Boutique Ado](https://codeinstitute.net) | Code Institute walkthrough project inspiration |
+| [Bootstrap](https://getbootstrap.com) | Various components / responsive front-end framework |
+| [AWS S3](https://aws.amazon.com/s3) | Cloud storage for static/media files |
+| [Whitenoise](https://whitenoise.readthedocs.io) | Static file service |
+| [Stripe](https://docs.stripe.com/payments/elements) | Online payment services |
+| [Gmail API](https://developers.google.com/gmail/api/guides) | Sending payment confirmation emails |
+| [Python Tutor](https://pythontutor.com) | Additional Python help |
+| [Claude AI](https://anthropic.com/claude) | Help with code logic and explanations |
+
 ### Media
 
+| Source | Image Type | Notes |
+| --- | --- | --- |
+| [Unsplash](https://unsplash.com/photos/photo-of-library-with-turned-on-lights-sfL_QOnmy00) | Background Image | Photographer: Janko Ferlic. Used as main background for site |
+| [Unsplash](https://unsplash.com/photos/green-ceramic-mug-beside-book-4eWwSxaDhe4) | Default Book Image | Photographer: Aaron Burden. Used as default book placeholder |
+| [Wikimedia-Commons](https://commons.wikimedia.org/wiki/Category:To_Kill_a_Mockingbird) | Book Cover | Lipincott Publishing House Cover Image. Used as example for book cover updates (copyright expired) |
+| [Coolors](https://coolors.co/) | Color Palette | Example image used to demonstrate book cover upload functionality while avoiding copyright issues |
+| [FreeConvert](https://www.freeconvert.com/) | Compression Tool | Used for PNG conversion and optimization |
+| [TinyPNG](https://tinypng.com) | Compression Tool | Used for compressing images under 5MB |
+| [favicon.io](https://favicon.io) | Favicon | Used for generating the site favicon |
+| [Boutique Ado](https://codeinstitute.net) | Sample Images | Sample images from Code Institute walkthrough projects |
+| [Coolors](https://coolors.co) | Color Scheme | Used for generating the site's color palette |
+
 ### Acknowledgements
+
+- I would like to thank my Code Institute mentor, [Tim Nelson](https://www.github.com/TravelTimN) for his support and guidance through this and other projects. His guidance has been invaluable. 
+- I would like to thank the [Code Institute](https://codeinstitute.net) Tutor Team for their assistance with troubleshooting and debugging some project issues.
+- I would like to thank my course leader as well, Laura, she has since stopped being the course leader but her advice were greatly appreciated. 

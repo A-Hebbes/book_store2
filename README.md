@@ -659,6 +659,10 @@ While I didn't formally track bugs during development using GitHub Issues, here 
     - **Issue**: When adding new books, uploaded images weren't being saved to AWS S3 correctly.
     - **Fix**: Corrected the AWS bucket configuration and updated the media file handling in settings.py.
 
+4. Negative Price Input
+    - **Issue**: The system was allowing negative prices to be entered for books.
+    - **Fix**: Added price validation in the BookForm clean_price method to ensure only positive values are accepted, raising a ValidationError for non-positive prices.
+
 
 ### Unfixed Bugs
 

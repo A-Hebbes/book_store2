@@ -1,0 +1,689 @@
+.
+├── books
+│   ├── admin.py
+│   ├── apps.py
+│   ├── decorators.py
+│   ├── fixtures
+│   │   └── books.json
+│   ├── forms.py
+│   ├── __init__.py
+│   ├── migrations
+│   │   ├── 0001_initial.py
+│   │   ├── 0002_book_isbn.py
+│   │   ├── 0003_remove_book_image_path_book_image.py
+│   │   └── __init__.py
+│   ├── models.py
+│   ├── templates
+│   │   └── books
+│   │       ├── add_book.html
+│   │       ├── book_detail.html
+│   │       ├── books.html
+│   │       ├── custom_widget_templates
+│   │       │   └── custom_clearable_file_input.html
+│   │       ├── edit_book.html
+│   │       └── includes
+│   │           └── quantity_input_script.html
+│   ├── tests.py
+│   ├── urls.py
+│   ├── views.py
+│   └── widgets.py
+├── bookshelf
+│   ├── admin.py
+│   ├── apps.py
+│   ├── contexts.py
+│   ├── __init__.py
+│   ├── migrations
+│   │   └── __init__.py
+│   ├── models.py
+│   ├── templates
+│   │   └── bookshelf
+│   │       └── bookshelf.html
+│   ├── templatetags
+│   │   ├── bookshelf_tools.py
+│   │   └── __init__.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── bookshop
+│   ├── admin.py
+│   ├── apps.py
+│   ├── __init__.py
+│   ├── migrations
+│   │   ├── 0001_initial.py
+│   │   ├── 0002_profile.py
+│   │   ├── 0003_delete_book.py
+│   │   └── __init__.py
+│   ├── models.py
+│   ├── templates
+│   │   └── bookshop
+│   │       └── index.html
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── checkout
+│   ├── admin.py
+│   ├── apps.py
+│   ├── forms.py
+│   ├── __init__.py
+│   ├── migrations
+│   │   ├── 0001_initial.py
+│   │   ├── 0002_order_email_sent.py
+│   │   └── __init__.py
+│   ├── models.py
+│   ├── signals.py
+│   ├── static
+│   │   └── checkout
+│   │       ├── css
+│   │       │   └── checkout.css
+│   │       └── js
+│   │           └── stripe_elements.js
+│   ├── templates
+│   │   └── checkout
+│   │       ├── checkout.html
+│   │       ├── checkout_success.html
+│   │       └── confirmation_emails
+│   │           ├── confirmation_email_body.txt
+│   │           └── confirmation_email_subject.txt
+│   ├── tests.py
+│   ├── urls.py
+│   ├── utils.py
+│   └── views.py
+├── contact
+│   ├── admin.py
+│   ├── apps.py
+│   ├── forms.py
+│   ├── __init__.py
+│   ├── migrations
+│   │   ├── 0001_initial.py
+│   │   └── __init__.py
+│   ├── models.py
+│   ├── templates
+│   │   └── contact
+│   │       └── contact.html
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── custom_storages.py
+├── db.sqlite3
+├── documentation
+│   ├── admin-order.png
+│   ├── admin-user-accounts.png
+│   ├── book-catalogue.png
+│   ├── book-details.png
+│   ├── book-management.png
+│   ├── browsers
+│   │   ├── chrome-404.png
+│   │   ├── chrome-add-product.png
+│   │   ├── chrome-bag.png
+│   │   ├── chrome-checkout.png
+│   │   ├── chrome-checkout-success.png
+│   │   ├── chrome-contact.png
+│   │   ├── chrome-edit-product.png
+│   │   ├── chrome-home.png
+│   │   ├── chrome-login.png
+│   │   ├── chrome-newsletter.png
+│   │   ├── chrome-product-details.png
+│   │   ├── chrome-products.png
+│   │   ├── chrome-register.png
+│   │   ├── firefox-404.png
+│   │   ├── firefox-add-product.png
+│   │   ├── firefox-bag.png
+│   │   ├── firefox-checkout.png
+│   │   ├── firefox-checkout-success.png
+│   │   ├── firefox-contact.png
+│   │   ├── firefox-edit-product.png
+│   │   ├── firefox-home.png
+│   │   ├── firefox-login.png
+│   │   ├── firefox-newsletter.png
+│   │   ├── firefox-product-details.png
+│   │   ├── firefox-products.png
+│   │   ├── firefox-register.png
+│   │   ├── safari-404.png
+│   │   ├── safari-add-product.png
+│   │   ├── safari-bag.png
+│   │   ├── safari-checkout.png
+│   │   ├── safari-checkout-success.png
+│   │   ├── safari-contact.png
+│   │   ├── safari-edit-product.png
+│   │   ├── safari-home.png
+│   │   ├── safari-login.png
+│   │   ├── safari-newsletter.png
+│   │   ├── safari-product-details.png
+│   │   ├── safari-products.png
+│   │   └── safari-register.png
+│   ├── coolors.png
+│   ├── defensive
+│   │   ├── 404.png
+│   │   ├── add-to-cart.png
+│   │   ├── checkout.png
+│   │   ├── confirmation-email.png
+│   │   ├── create-product.png
+│   │   ├── delete-product.png
+│   │   ├── filtering.png
+│   │   ├── manage-cart.png
+│   │   ├── newsletter.png
+│   │   ├── order-confirmation.png
+│   │   ├── product-details.png
+│   │   ├── products.png
+│   │   ├── sorting.png
+│   │   ├── stripe-payment.png
+│   │   └── update-product.png
+│   ├── erd.png
+│   ├── footer.png
+│   ├── gh-issues-closed.png
+│   ├── gh-issues-open.png
+│   ├── gh-projects.png
+│   ├── html-validation.png
+│   ├── landing-page.png
+│   ├── lighthouse
+│   │   ├── lighthouse-404.png
+│   │   ├── lighthouse-add-product.png
+│   │   ├── lighthouse-bag.png
+│   │   ├── lighthouse-checkout.png
+│   │   ├── lighthouse-checkout-success.png
+│   │   ├── lighthouse-contact.png
+│   │   ├── lighthouse-edit-product.png
+│   │   ├── lighthouse-home.png
+│   │   ├── lighthouse-login.png
+│   │   ├── lighthouse-newsletter.png
+│   │   ├── lighthouse-product-details.png
+│   │   ├── lighthouse-products.png
+│   │   └── lighthouse-register.png
+│   ├── milestones.png
+│   ├── mockup-facebook2.png
+│   ├── mockup-facebook.png
+│   ├── mockup.png
+│   ├── navbar.png
+│   ├── responsiveness
+│   │   ├── desktop-404.png
+│   │   ├── desktop-add-product.png
+│   │   ├── desktop-bag.png
+│   │   ├── desktop-checkout.png
+│   │   ├── desktop-checkout-success.png
+│   │   ├── desktop-contact.png
+│   │   ├── desktop-edit-product.png
+│   │   ├── desktop-home.png
+│   │   ├── desktop-login.png
+│   │   ├── desktop-newsletter.png
+│   │   ├── desktop-product-details.png
+│   │   ├── desktop-products.png
+│   │   ├── desktop-register.png
+│   │   ├── mobile-404.png
+│   │   ├── mobile-add-product.png
+│   │   ├── mobile-bag.png
+│   │   ├── mobile-checkout.png
+│   │   ├── mobile-checkout-success.png
+│   │   ├── mobile-contact.png
+│   │   ├── mobile-edit-product.png
+│   │   ├── mobile-home.png
+│   │   ├── mobile-login.png
+│   │   ├── mobile-newsletter.png
+│   │   ├── mobile-product-details.png
+│   │   ├── mobile-products.png
+│   │   ├── mobile-register.png
+│   │   ├── tablet-404.png
+│   │   ├── tablet-add-product.png
+│   │   ├── tablet-bag.png
+│   │   ├── tablet-checkout.png
+│   │   ├── tablet-checkout-success.png
+│   │   ├── tablet-contact.png
+│   │   ├── tablet-edit-product.png
+│   │   ├── tablet-home.png
+│   │   ├── tablet-login.png
+│   │   ├── tablet-newsletter.png
+│   │   ├── tablet-product-details.png
+│   │   ├── tablet-products.png
+│   │   └── tablet-register.png
+│   ├── shopping-basket.png
+│   ├── validation
+│   │   ├── addbook.html.validator.png
+│   │   ├── allbooks.html.validator.png
+│   │   ├── base.css.validator.png
+│   │   ├── bookdetail.html.validator.png
+│   │   ├── books.admin.py.validator.png
+│   │   ├── books.decorators.py.validator.png
+│   │   ├── books.forms.py.png
+│   │   ├── bookshelf.admin.py.validator.png
+│   │   ├── bookshelf.bookshelf_tools.py.validator.png
+│   │   ├── bookshelf.contexts.py.validator.png
+│   │   ├── bookshelf.html.validator.png
+│   │   ├── bookshelf.models.py.validator.png
+│   │   ├── bookshelf.urls.py.validator.png
+│   │   ├── bookshelf.views.py.validator.png
+│   │   ├── bookshop.admin.py.validator.png
+│   │   ├── bookshop.models.py.validator.png
+│   │   ├── bookshop.urls.py.validator.png
+│   │   ├── bookshop.views.py.validator.png
+│   │   ├── books.models.py.validator.png
+│   │   ├── books.urls.py.validator.png
+│   │   ├── books.views.py.validator.png
+│   │   ├── books.widgets.py.validator.png
+│   │   ├── checkout.admin.py.validator.png
+│   │   ├── checkout.css.validator.png
+│   │   ├── checkout.forms.py.validator.png
+│   │   ├── checkout.html.validator.png
+│   │   ├── checkout.models.py.validator.png
+│   │   ├── checkout.signals.py.validator.png
+│   │   ├── checkout.success.html.validator.png
+│   │   ├── checkout.urls.py.validator.png
+│   │   ├── checkout.utils.py.validator.png
+│   │   ├── checkout.views.py.validator.png
+│   │   ├── contact.admin.py.validator.png
+│   │   ├── contact.forms.py.validator.png
+│   │   ├── contact.html.validator.png
+│   │   ├── contact.models.py.validator.png
+│   │   ├── contact.urls.py.validator.png
+│   │   ├── contact.views.py.validator.png
+│   │   ├── custom.404.validator.png
+│   │   ├── custom_storages.py.validator.png
+│   │   ├── editbook.html.validator.png
+│   │   ├── faq.admin.py.validator.png
+│   │   ├── faq.html.validation.png
+│   │   ├── faq.models.py.validator.png
+│   │   ├── faq.urls.py.validator.png
+│   │   ├── faq.views.py.validator.png
+│   │   ├── index.html.validator.png
+│   │   ├── manage.py.validator.png
+│   │   ├── my_store.settings.py.validator.png
+│   │   ├── my_store.urls.py.validator.png
+│   │   ├── my_store.views.py.validator.png
+│   │   ├── newsletter.admin.py.validator.png
+│   │   ├── newsletter.forms.py.validator.png
+│   │   ├── newsletter.html.validator.png
+│   │   ├── newsletter.models.py.validator.png
+│   │   ├── newsletter.urls.py.validator.png
+│   │   ├── newsletter.utils.py.validator.png
+│   │   ├── newsletter.views.py.validator.png
+│   │   └── stripe.js.validator.png
+│   └── wireframes
+│       ├── bookstore-book-detail-mobile-wirdeframe.png
+│       ├── bookstore-book-detail-wireframe.png
+│       ├── bookstore-book-menu-mobile-wireframe.png
+│       ├── bookstore-book-menu-wireframe.png
+│       ├── bookstore-contact-mobile-wireframe.png
+│       ├── bookstore-contact-wireframe.png
+│       ├── bookstore-home-mobile-wireframe.png
+│       └── bookstore-home-wireframe.png
+├── env.py
+├── faq
+│   ├── admin.py
+│   ├── apps.py
+│   ├── __init__.py
+│   ├── migrations
+│   │   ├── 0001_initial.py
+│   │   └── __init__.py
+│   ├── models.py
+│   ├── templates
+│   │   └── faq
+│   │       └── faq.html
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── manage.py
+├── media
+│   ├── books
+│   │   ├── To_Kill_a_Mockingbird_WikiCommons_200_MORapC8.png
+│   │   ├── To_Kill_a_Mockingbird_WikiCommons_200.png
+│   │   └── To_Kill_a_Mockingbird_WikiCommons 200.webp
+│   ├── default-book.jpg
+│   ├── default-book.webp
+│   ├── Library-200.jpg
+│   └── Library-200.webp
+├── my_store
+│   ├── asgi.py
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── views.py
+│   └── wsgi.py
+├── newsletter
+│   ├── admin.py
+│   ├── apps.py
+│   ├── forms.py
+│   ├── __init__.py
+│   ├── migrations
+│   │   ├── 0001_initial.py
+│   │   └── __init__.py
+│   ├── models.py
+│   ├── templates
+│   │   └── newsletter
+│   │       └── signup.html
+│   ├── tests.py
+│   ├── urls.py
+│   ├── utils.py
+│   └── views.py
+├── Procfile
+├── project_structure.txt
+├── README.md
+├── requirements.txt
+├── robots.txt
+├── sitemap.xml
+├── static
+│   └── css
+│       └── base.css
+├── staticfiles
+│   ├── admin
+│   │   ├── css
+│   │   │   ├── autocomplete.css
+│   │   │   ├── base.css
+│   │   │   ├── changelists.css
+│   │   │   ├── dark_mode.css
+│   │   │   ├── dashboard.css
+│   │   │   ├── forms.css
+│   │   │   ├── login.css
+│   │   │   ├── nav_sidebar.css
+│   │   │   ├── responsive.css
+│   │   │   ├── responsive_rtl.css
+│   │   │   ├── rtl.css
+│   │   │   ├── vendor
+│   │   │   │   └── select2
+│   │   │   │       ├── LICENSE-SELECT2.md
+│   │   │   │       ├── select2.css
+│   │   │   │       └── select2.min.css
+│   │   │   └── widgets.css
+│   │   ├── img
+│   │   │   ├── calendar-icons.svg
+│   │   │   ├── gis
+│   │   │   │   ├── move_vertex_off.svg
+│   │   │   │   └── move_vertex_on.svg
+│   │   │   ├── icon-addlink.svg
+│   │   │   ├── icon-alert.svg
+│   │   │   ├── icon-calendar.svg
+│   │   │   ├── icon-changelink.svg
+│   │   │   ├── icon-clock.svg
+│   │   │   ├── icon-deletelink.svg
+│   │   │   ├── icon-no.svg
+│   │   │   ├── icon-unknown-alt.svg
+│   │   │   ├── icon-unknown.svg
+│   │   │   ├── icon-viewlink.svg
+│   │   │   ├── icon-yes.svg
+│   │   │   ├── inline-delete.svg
+│   │   │   ├── LICENSE
+│   │   │   ├── README.txt
+│   │   │   ├── search.svg
+│   │   │   ├── selector-icons.svg
+│   │   │   ├── sorting-icons.svg
+│   │   │   ├── tooltag-add.svg
+│   │   │   └── tooltag-arrowright.svg
+│   │   └── js
+│   │       ├── actions.js
+│   │       ├── admin
+│   │       │   ├── DateTimeShortcuts.js
+│   │       │   └── RelatedObjectLookups.js
+│   │       ├── autocomplete.js
+│   │       ├── calendar.js
+│   │       ├── cancel.js
+│   │       ├── change_form.js
+│   │       ├── collapse.js
+│   │       ├── core.js
+│   │       ├── filters.js
+│   │       ├── inlines.js
+│   │       ├── jquery.init.js
+│   │       ├── nav_sidebar.js
+│   │       ├── popup_response.js
+│   │       ├── prepopulate_init.js
+│   │       ├── prepopulate.js
+│   │       ├── SelectBox.js
+│   │       ├── SelectFilter2.js
+│   │       ├── theme.js
+│   │       ├── urlify.js
+│   │       └── vendor
+│   │           ├── jquery
+│   │           │   ├── jquery.js
+│   │           │   ├── jquery.min.js
+│   │           │   └── LICENSE.txt
+│   │           ├── select2
+│   │           │   ├── i18n
+│   │           │   │   ├── af.js
+│   │           │   │   ├── ar.js
+│   │           │   │   ├── az.js
+│   │           │   │   ├── bg.js
+│   │           │   │   ├── bn.js
+│   │           │   │   ├── bs.js
+│   │           │   │   ├── ca.js
+│   │           │   │   ├── cs.js
+│   │           │   │   ├── da.js
+│   │           │   │   ├── de.js
+│   │           │   │   ├── dsb.js
+│   │           │   │   ├── el.js
+│   │           │   │   ├── en.js
+│   │           │   │   ├── es.js
+│   │           │   │   ├── et.js
+│   │           │   │   ├── eu.js
+│   │           │   │   ├── fa.js
+│   │           │   │   ├── fi.js
+│   │           │   │   ├── fr.js
+│   │           │   │   ├── gl.js
+│   │           │   │   ├── he.js
+│   │           │   │   ├── hi.js
+│   │           │   │   ├── hr.js
+│   │           │   │   ├── hsb.js
+│   │           │   │   ├── hu.js
+│   │           │   │   ├── hy.js
+│   │           │   │   ├── id.js
+│   │           │   │   ├── is.js
+│   │           │   │   ├── it.js
+│   │           │   │   ├── ja.js
+│   │           │   │   ├── ka.js
+│   │           │   │   ├── km.js
+│   │           │   │   ├── ko.js
+│   │           │   │   ├── lt.js
+│   │           │   │   ├── lv.js
+│   │           │   │   ├── mk.js
+│   │           │   │   ├── ms.js
+│   │           │   │   ├── nb.js
+│   │           │   │   ├── ne.js
+│   │           │   │   ├── nl.js
+│   │           │   │   ├── pl.js
+│   │           │   │   ├── ps.js
+│   │           │   │   ├── pt-BR.js
+│   │           │   │   ├── pt.js
+│   │           │   │   ├── ro.js
+│   │           │   │   ├── ru.js
+│   │           │   │   ├── sk.js
+│   │           │   │   ├── sl.js
+│   │           │   │   ├── sq.js
+│   │           │   │   ├── sr-Cyrl.js
+│   │           │   │   ├── sr.js
+│   │           │   │   ├── sv.js
+│   │           │   │   ├── th.js
+│   │           │   │   ├── tk.js
+│   │           │   │   ├── tr.js
+│   │           │   │   ├── uk.js
+│   │           │   │   ├── vi.js
+│   │           │   │   ├── zh-CN.js
+│   │           │   │   └── zh-TW.js
+│   │           │   ├── LICENSE.md
+│   │           │   ├── select2.full.js
+│   │           │   └── select2.full.min.js
+│   │           └── xregexp
+│   │               ├── LICENSE.txt
+│   │               ├── xregexp.js
+│   │               └── xregexp.min.js
+│   ├── checkout
+│   │   ├── css
+│   │   │   └── checkout.css
+│   │   └── js
+│   │       └── stripe_elements.js
+│   └── css
+│       └── base.css
+└── templates
+    ├── account
+    │   ├── account_inactive.html
+    │   ├── base_entrance.html
+    │   ├── base_manage_email.html
+    │   ├── base_manage.html
+    │   ├── base_manage_password.html
+    │   ├── base_reauthenticate.html
+    │   ├── confirm_email_verification_code.html
+    │   ├── confirm_login_code.html
+    │   ├── email
+    │   │   ├── account_already_exists_message.txt
+    │   │   ├── account_already_exists_subject.txt
+    │   │   ├── base_message.txt
+    │   │   ├── base_notification.txt
+    │   │   ├── email_changed_message.txt
+    │   │   ├── email_changed_subject.txt
+    │   │   ├── email_confirmation_message.txt
+    │   │   ├── email_confirmation_signup_message.txt
+    │   │   ├── email_confirmation_signup_subject.txt
+    │   │   ├── email_confirmation_subject.txt
+    │   │   ├── email_confirm_message.txt
+    │   │   ├── email_confirm_subject.txt
+    │   │   ├── email_deleted_message.txt
+    │   │   ├── email_deleted_subject.txt
+    │   │   ├── login_code_message.txt
+    │   │   ├── login_code_subject.txt
+    │   │   ├── password_changed_message.txt
+    │   │   ├── password_changed_subject.txt
+    │   │   ├── password_reset_key_message.txt
+    │   │   ├── password_reset_key_subject.txt
+    │   │   ├── password_reset_message.txt
+    │   │   ├── password_reset_subject.txt
+    │   │   ├── password_set_message.txt
+    │   │   ├── password_set_subject.txt
+    │   │   ├── unknown_account_message.txt
+    │   │   └── unknown_account_subject.txt
+    │   ├── email_change.html
+    │   ├── email_confirm.html
+    │   ├── email.html
+    │   ├── login.html
+    │   ├── logout.html
+    │   ├── messages
+    │   │   ├── cannot_delete_primary_email.txt
+    │   │   ├── email_confirmation_failed.txt
+    │   │   ├── email_confirmation_sent.txt
+    │   │   ├── email_confirmed.txt
+    │   │   ├── email_deleted.txt
+    │   │   ├── logged_in.txt
+    │   │   ├── logged_out.txt
+    │   │   ├── login_code_sent.txt
+    │   │   ├── password_changed.txt
+    │   │   ├── password_set.txt
+    │   │   ├── primary_email_set.txt
+    │   │   └── unverified_primary_email.txt
+    │   ├── password_change.html
+    │   ├── password_reset_done.html
+    │   ├── password_reset_from_key_done.html
+    │   ├── password_reset_from_key.html
+    │   ├── password_reset.html
+    │   ├── password_set.html
+    │   ├── reauthenticate.html
+    │   ├── request_login_code.html
+    │   ├── signup_closed.html
+    │   ├── signup.html
+    │   ├── snippets
+    │   │   ├── already_logged_in.html
+    │   │   └── warn_no_email.html
+    │   ├── verification_sent.html
+    │   └── verified_email_required.html
+    ├── allauth
+    │   ├── elements
+    │   │   ├── alert.html
+    │   │   ├── badge.html
+    │   │   ├── button_group.html
+    │   │   ├── button.html
+    │   │   ├── field.html
+    │   │   ├── fields.html
+    │   │   ├── form.html
+    │   │   ├── h1.html
+    │   │   ├── h2.html
+    │   │   ├── hr.html
+    │   │   ├── img.html
+    │   │   ├── panel.html
+    │   │   ├── p.html
+    │   │   ├── provider.html
+    │   │   ├── provider_list.html
+    │   │   ├── table.html
+    │   │   ├── tbody.html
+    │   │   ├── td.html
+    │   │   ├── thead.html
+    │   │   ├── th.html
+    │   │   └── tr.html
+    │   └── layouts
+    │       ├── base.html
+    │       ├── entrance.html
+    │       └── manage.html
+    ├── base.html
+    ├── errors
+    │   └── 404.html
+    ├── includes
+    │   ├── main-nav.html
+    │   ├── mobile-top-header.html
+    │   └── toasts
+    │       ├── toast_error.html
+    │       ├── toast_info.html
+    │       ├── toast_success.html
+    │       └── toast_warning.html
+    ├── mfa
+    │   ├── authenticate.html
+    │   ├── base_entrance.html
+    │   ├── base_manage.html
+    │   ├── email
+    │   │   ├── recovery_codes_generated_message.txt
+    │   │   ├── recovery_codes_generated_subject.txt
+    │   │   ├── totp_activated_message.txt
+    │   │   ├── totp_activated_subject.txt
+    │   │   ├── totp_deactivated_message.txt
+    │   │   ├── totp_deactivated_subject.txt
+    │   │   ├── webauthn_added_message.txt
+    │   │   ├── webauthn_added_subject.txt
+    │   │   ├── webauthn_removed_message.txt
+    │   │   └── webauthn_removed_subject.txt
+    │   ├── index.html
+    │   ├── messages
+    │   │   ├── recovery_codes_generated.txt
+    │   │   ├── totp_activated.txt
+    │   │   ├── totp_deactivated.txt
+    │   │   ├── webauthn_added.txt
+    │   │   └── webauthn_removed.txt
+    │   ├── reauthenticate.html
+    │   ├── recovery_codes
+    │   │   ├── base.html
+    │   │   ├── download.txt
+    │   │   ├── generate.html
+    │   │   └── index.html
+    │   ├── totp
+    │   │   ├── activate_form.html
+    │   │   ├── base.html
+    │   │   └── deactivate_form.html
+    │   └── webauthn
+    │       ├── add_form.html
+    │       ├── authenticator_confirm_delete.html
+    │       ├── authenticator_list.html
+    │       ├── base.html
+    │       ├── edit_form.html
+    │       ├── reauthenticate.html
+    │       └── snippets
+    │           ├── login_script.html
+    │           └── scripts.html
+    ├── socialaccount
+    │   ├── authentication_error.html
+    │   ├── base_entrance.html
+    │   ├── base_manage.html
+    │   ├── connections.html
+    │   ├── email
+    │   │   ├── account_connected_message.txt
+    │   │   ├── account_connected_subject.txt
+    │   │   ├── account_disconnected_message.txt
+    │   │   └── account_disconnected_subject.txt
+    │   ├── login_cancelled.html
+    │   ├── login.html
+    │   ├── login_redirect.html
+    │   ├── messages
+    │   │   ├── account_connected_other.txt
+    │   │   ├── account_connected.txt
+    │   │   ├── account_connected_updated.txt
+    │   │   └── account_disconnected.txt
+    │   ├── signup.html
+    │   └── snippets
+    │       ├── login_extra.html
+    │       ├── login.html
+    │       └── provider_list.html
+    └── usersessions
+        ├── base_manage.html
+        ├── messages
+        │   └── sessions_logged_out.txt
+        └── usersession_list.html
+
+91 directories, 595 files

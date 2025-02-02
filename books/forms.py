@@ -30,6 +30,12 @@ class BookForm(forms.ModelForm):
             raise forms.ValidationError("ISBN must be 13 characters long.")
         return isbn
 
+    def clean_price(self):
+        price = self.cleaned_data.get('price')
+        if price is not None and price <= 0:
+            raise forms.ValidationError("Price must be greater than zero.")
+        return price
+
     def save(self, commit=True):
         instance = super().save(commit=False)
         if self.cleaned_data.get('image'):

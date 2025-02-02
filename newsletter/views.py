@@ -15,7 +15,7 @@ def newsletter_signup(request):
         else:
             messages.error(
                 request,
-                'Something went wrong. Please check the form and resubmit.'
+                'We already have that email registered, please use a different email'
             )
     else:
         form = NewsletterForm()

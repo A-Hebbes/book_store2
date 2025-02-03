@@ -663,6 +663,15 @@ While I didn't formally track bugs during development using GitHub Issues, here 
     - **Issue**: The system was allowing negative prices to be entered for books.
     - **Fix**: Added price validation in the BookForm clean_price method to ensure only positive values are accepted, raising a ValidationError for non-positive prices.
 
+5. Phone Number Validation
+    - **Issue**: The original phone number input allowed for incorrect information to be submitted to the form.
+    - **Fix**: Implemented improved regex pattern for phone number validation based on research from [Stack Overflow](https://stackoverflow.com/questions/5066329/regex-for-valid-international-mobile-phone-number) and [GeeksforGeeks](https://www.geeksforgeeks.org/validate-phone-numbers-with-country-code-extension-using-regular-expression/). The new validation now properly handles international numbers with optional country codes.
+    - **Implementation**: Updated the regex pattern in checkout/forms.py to `regex=r'^\+?1?\d{9,15}$'` which allows for:
+        - Optional '+' prefix
+        - Optional country code
+        - Between 9-15 digits
+        - No spaces or special characters
+
 
 ### Unfixed Bugs
 

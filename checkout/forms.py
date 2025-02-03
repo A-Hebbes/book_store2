@@ -1,8 +1,15 @@
 from django import forms
 from .models import Order
+from django.core.validators import RegexValidator
 
 
 class OrderForm(forms.ModelForm):
+    phone_regex = RegexValidator(
+        regex=r'^\+?1?\d{9,15}$',
+        message="Phone number must be entered in the format: '+353999999999'. Up to 15 digits allowed."
+    )
+    phone_number = forms.CharField(validators=[phone_regex], max_length=17)
+    
     class Meta:
         model = Order
         fields = ('full_name', 'email', 'phone_number',

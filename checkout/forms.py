@@ -1,6 +1,7 @@
 from django import forms
 from .models import Order
 from django.core.validators import RegexValidator
+from django.core.exceptions import ValidationError
 
 
 class OrderForm(forms.ModelForm):
@@ -12,8 +13,8 @@ class OrderForm(forms.ModelForm):
 
    
     eircode_regex = RegexValidator(
-        regex=r'^[A-Z]\d{2}[A-Z0-9]{4}$',
-        message="Please enter a valid Eircode (e.g., D02X285)"
+        regex=r'^[A-Z]\d{2}\s*[A-Z0-9]{4}$',
+        message="Please enter a valid Eircode (e.g., D02 X285 or D02X285)"
     )
     postal_code = forms.CharField(validators=[eircode_regex], max_length=8)
     
@@ -23,6 +24,20 @@ class OrderForm(forms.ModelForm):
                   'address_line1', 'address_line2',
                   'city', 'postal_code', 'country',
                   'county',)
+
+    def clean_phone_number(self):
+        phone_number = self.cleaned_data.get('phone_number')
+        phone_number = ''.join(filter(str.isdigit, phone_number))
+        if len(phone_number) < 9 or len(phone_number) > 15:
+            raise ValidationError('Please enter a valid phone number with 9-15 digits')
+        return phone_number
+
+    def clean_postal_code(self):
+        postal_code = self.cleaned_data.get('postal_code')
+        postal_code = postal_code.upper().strip()
+        if not postal_code:
+            raise ValidationError('Eircode is required')
+        return postal_code
 
     def __init__(self, *args, **kwargs):
 

@@ -9,6 +9,13 @@ class OrderForm(forms.ModelForm):
         message="Phone number must be entered in the format: '+353999999999'. Up to 15 digits allowed."
     )
     phone_number = forms.CharField(validators=[phone_regex], max_length=17)
+
+   
+    eircode_regex = RegexValidator(
+        regex=r'^[A-Z]\d{2}[A-Z0-9]{4}$',
+        message="Please enter a valid Eircode (e.g., D02X285)"
+    )
+    postal_code = forms.CharField(validators=[eircode_regex], max_length=8)
     
     class Meta:
         model = Order

@@ -95,6 +95,7 @@ def checkout(request):
                         f"{order_form.fields[field].label}: {error}"
                     )
             return redirect(reverse('checkout'))
+
     else:
         bookshelf = request.session.get('bookshelf', {})
         if not bookshelf:

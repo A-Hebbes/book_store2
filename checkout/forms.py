@@ -9,14 +9,27 @@ class OrderForm(forms.ModelForm):
         regex=r'^\+?1?\d{9,15}$',
         message="Phone number must be entered in the format: '+353999999999'. Up to 15 digits allowed."
     )
-    phone_number = forms.CharField(validators=[phone_regex], max_length=17)
+    phone_number = forms.CharField(
+    validators=[phone_regex], 
+    max_length=17,
+    error_messages={
+        'required': 'Phone number is required',
+        'invalid': 'Please enter a valid phone number'
+    }
+)
 
-   
     eircode_regex = RegexValidator(
         regex=r'^[A-Z]\d{2}\s*[A-Z0-9]{4}$',
         message="Please enter a valid Eircode (e.g., D02 X285 or D02X285)"
     )
-    postal_code = forms.CharField(validators=[eircode_regex], max_length=8)
+    postal_code = forms.CharField(
+    validators=[eircode_regex], 
+    max_length=8,
+    error_messages={
+        'required': 'Eircode is required',
+        'invalid': 'Please enter a valid Eircode'
+    }
+)
     
     class Meta:
         model = Order

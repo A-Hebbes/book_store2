@@ -88,11 +88,12 @@ def checkout(request):
                 reverse('checkout_success', args=[order.order_number])
             )
         else:
-            messages.error(
-                request,
-                'There was an error with your form. '
-                'Please double check your information.'
-            )
+            for field, errors in order_form.errors.items():
+                for error in errors:
+                    messages.error(
+                        request,
+                        f"{order_form.fields[field].label}: {error}"
+                    )
             return redirect(reverse('checkout'))
     else:
         bookshelf = request.session.get('bookshelf', {})
